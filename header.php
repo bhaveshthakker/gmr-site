@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>Legend - One Page Bootstrap Template</title>
+    <title>Get Me Reffered - A beginning of the end your job search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
