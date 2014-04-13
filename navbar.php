@@ -1,4 +1,3 @@
-<!--******************** NAVBAR ********************-->
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
@@ -15,26 +14,26 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <nav class="pull-right nav-collapse collapse">
           <ul id="menu-main" class="nav">
             <li><a title="Home" href="#top">Home</a></li>
-            <li><a title="portfolio" href="#portfolio">Portfolio</a></li>
-            <li><a title="services" href="#services">Services</a></li>
-            <li><a title="news" href="#news">News</a></li>
-            <li><a title="team" href="#team">Team</a></li>
-            <li><a title="contact" href="#contact">Contact</a></li>
-            <?php
-              if($_SESSION['router'] == 'landing') {
-                echo '<li><a title="Sign out" href="signout.php" >Sign Out</a></li>';
-              } else {
-                echo '<li><a title="Sign In" href="signin.php" >Sign In</a></li>';
-              }
-            ?>
-          </ul>
-        </nav>
-      </div>
-      <!-- /.container -->
+           <!-- <li><a title="portfolio" href="#portfolio">Portfolio</a></li>
+           <li><a title="services" href="#services">Services</a></li> -->
+           <li><a title="news" href="#news">News</a></li>
+           <li><a title="team" href="#team">Team</a></li>
+           <li><a title="contact" href="#contact">Contact</a></li>
+           <?php
+           if($_SESSION['router'] == 'landing') {
+            echo '<li><a title="Sign out" href="signout.php" >Sign Out</a></li>'; 
+          } else {
+            echo '<li id="signin"><a title="Sign In" href="#feature" >Sign In</a></li>';
+          }
+          ?>
+        </ul>
+      </nav>
     </div>
-    <!-- /.navbar-inner -->
+    <!-- /.container -->
   </div>
-  <!-- /.navbar -->
+  <!-- /.navbar-inner -->
+</div>
+<!-- /.navbar -->
 </div>
 <!-- /.navbar-wrapper -->
 <div id="top"></div>

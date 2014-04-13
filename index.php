@@ -1,39 +1,42 @@
-<!DOCTYPE HTML>
 <?php 
 if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
-} 
+} ?>
+<!DOCTYPE HTML>
+<?php
 $router = $_SESSION['router'] = isset($_SESSION['router'])? $_SESSION['router']:'anonymous';
 ?>
 <html lang="en">
-<?php require 'header.php'; ?>    
+<?php require_once 'header.php'; ?>    
 <body>
-  <?php require 'navbar.php'; ?>
-  <!-- ******************** HeaderWrap ********************-->
-  <?php
-  if($router == 'anonymous') {
+  <?php require_once 'navbar.php';
+  
+  if($router == 'anonymousError') {  
+   require_once 'anonymous.php'; 
+  } 
+  elseif($router == 'anonymous') {
     if(session_status() == PHP_SESSION_ACTIVE) {
      session_destroy();
    }  
-   require 'anonymous.php'; 
+   require_once 'anonymous.php'; 
   } 
   elseif($router == 'landing') {
-    require 'landing.php';
+    require_once 'landing.php';
   } 
 
 ?>
 <!--******************** Portfolio Section ********************-->
-<?php require 'portfolio.php'; ?>
+<?php //require_once 'portfolio.php'; ?>
 <!--******************** Services Section ********************-->
-<?php require 'services.php'; ?>
+<?php //require_once 'services.php'; ?>
 <!--******************** Testimonials Section ********************-->
-<?php require 'testimonials.php'; ?>
+<?php //require_once 'testimonials.php'; ?>
 <!--******************** News Section ********************-->
-<?php require 'news.php'; ?>
+<?php require_once 'news.php'; ?>
 <!--******************** Team Section ********************-->
-<?php require 'team.php'; ?>
+<?php require_once 'team.php'; ?>
 <!--******************** Contact Section ********************-->
-<?php require 'contact.php'; ?>
-<?php require 'footer.php'; ?>
+<?php require_once 'contact.php'; ?>
+<?php require_once 'footer.php'; ?>
 </body>
 </html>

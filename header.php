@@ -29,15 +29,15 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui-1.10.2.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui-1.10.2.js"></script>
     <!-- Load ScrollTo -->
-    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
     <!-- Load LocalScroll -->
-    <script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
+    <script type="text/javascript" src="js/jquery.localscroll-min.js"></script>
+	
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/upload.js"></script>
     <!-- prettyPhoto Initialization -->
-    <script type="text/javascript" charset="utf-8">
-          $(document).ready(function(){
-            $("a[rel^='prettyPhoto']").prettyPhoto();
-          });
-        </script>
 </head>
