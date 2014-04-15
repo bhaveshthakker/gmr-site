@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !\.php$
+RewriteRule .* $0.php [L]
+DirectoryIndex home.php home.html index.php index.html

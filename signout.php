@@ -2,7 +2,6 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
 	session_start();
 }
-$_SESSION['username'] = ''; 
-$_SESSION['router'] = 'anonymous';
-header('location:index.php');
+unset($_SESSION['username']);
+header('location:home');
 ?>

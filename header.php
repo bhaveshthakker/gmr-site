@@ -1,43 +1,39 @@
-<head>
-    <meta charset="utf-8">
-    <title>Get Me Reffered - A beginning of the end your job search</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel='stylesheet' id='prettyphoto-css'  href="css/prettyPhoto.css" type='text/css' media='all'>
-    <link href="css/fontello.css" type="text/css" rel="stylesheet">
-    <!--[if lt IE 7]>
-            <link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">  
-        <![endif]-->
-    <!-- Google Web fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <style>
-    body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-    }
-    </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <!-- JQuery -->
-    <link rel="stylesheet" href="css/jquery-ui-1.10.2.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui-1.10.2.js"></script>
-    <!-- Load ScrollTo -->
-    <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
-    <!-- Load LocalScroll -->
-    <script type="text/javascript" src="js/jquery.localscroll-min.js"></script>
-	
-    <script type="text/javascript" src="js/jquery.form.js"></script>
-    <script type="text/javascript" src="js/upload.js"></script>
-    <!-- prettyPhoto Initialization -->
-</head>
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+?>
+<div class="navbar-wrapper">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+        <h1 class="brand"><a href="#top">GetMeReffered!</a></h1>
+        <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+        <nav class="pull-right nav-collapse collapse">
+          <ul id="menu-main" class="nav">
+            <li><a title="Home" href="#top">Home</a></li>
+           <!-- <li><a title="portfolio" href="#portfolio">Portfolio</a></li>
+           <li><a title="services" href="#services">Services</a></li> -->
+           <li><a title="news" href="#news">News</a></li>
+           <li><a title="team" href="#team">Team</a></li>
+           <li><a title="contact" href="#contact">Contact</a></li>
+           <?php
+           if(isset($_SESSION['username'])) {
+            echo '<li><a title="Sign out" href="signout.php" >Sign Out</a></li>'; 
+          } else {
+            echo '<li><a title="Sign In" href="#signin" >Sign In</a></li>';
+          }
+          ?>
+        </ul>
+      </nav>
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.navbar-inner -->
+</div>
+<!-- /.navbar -->
+</div>
+<!-- /.navbar-wrapper -->
+<div id="top"></div>

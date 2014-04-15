@@ -338,12 +338,7 @@ input[type=password] {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
-#feature input[type=submit] {
-	background: #0b333f !important;
-}
-#feature input[type=submit]:hover, #feature input[type=submit]:active {
-	background: #43413e !important;
-}
+
 input[type=submit]:hover,  input[type=submit]:active {
 	background: #43413e !important;
 }
@@ -376,7 +371,13 @@ section.single-page h1 {
 	margin-bottom: 2em; /* 72px */
 	font-size: 2.25em; /* 36px */
 }
-#feature {
+#signin input[type=submit] {
+	background: #0b333f !important;
+}
+#signin input[type=submit]:hover, #signin input[type=submit]:active {
+	background: #43413e !important;
+}
+#signin {
 	background: url("../img/yellow.png") repeat-x 0 0;
 	height: 250px;
 	z-index: 500;
@@ -385,12 +386,12 @@ section.single-page h1 {
 	-webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
 	text-align: center;
 }
-#feature article {
+#signin article {
 	text-align: center;
 	margin-top: 120px;
 	max-width: 1170px;
 }
-#feature h2 {
+#signin h2 {
 	color: #FFFFFF;
 	font-family: 'Open Sans', sans serif;
 	font-size: 2em;
@@ -398,10 +399,10 @@ section.single-page h1 {
 	margin: 0.5em 0;
 	text-shadow: 1px 1px 1px #333333;
 }
-#feature .container {
+#signin .container {
 	margin: auto;
 }
-#feature-headline {
+#signin-headline {
 	font-family: 'Patua One', cursive;
 	text-transform: uppercase;
 	color: rgba(228, 229, 229, 1);
@@ -410,11 +411,11 @@ section.single-page h1 {
 	height: 109px;
 	background-size: 100% auto;
 }
-#feature-headline span {
+#signin-headline span {
 	font-family: 'Patua One', cursive;
 	text-transform: lowercase;
 }
-#feature article p {
+#signin article p {
 	font-family: 'Patua One', cursive;
 	font-size: 40px;
 	margin-bottom: 0;

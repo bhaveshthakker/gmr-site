@@ -1,7 +1,8 @@
 <?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
   session_start();
-} ?>
+} 
+?>
 <div id="headerwrap">
   <header class="clearfix">
     <h1><span>Get Me Reffered!</span> A beginning of the end your job search.</h1>
@@ -19,10 +20,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             echo $_SESSION['error'];
           ?>
           <form method="post" action='signupApplicant.php' >
-            <input type="text"  id="firstname" name="firstname" placeholder="First Name" class="cform-text" size="40" title="Your first name" />
-            <input type="text"  id="lastname" name="lastname" placeholder="Last Name" class="cform-text" size="40" title="Your last name" />
-            <input type="text"  id="email" name ="email" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
-            <input type="password"  id="password" name ="password" placeholder="Password" class="cform-text" title="Your password" />  
+            <input type="text"  id="a_firstname" name="a_firstname" placeholder="First Name" class="cform-text" size="40" title="Your first name" />
+            <input type="text"  id="a_lastname" name="a_lastname" placeholder="Last Name" class="cform-text" size="40" title="Your last name" />
+            <input type="text"  id="a_email" name ="a_email" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
+            <input type="password"  id="a_password" name ="a_password" placeholder="Password" class="cform-text" title="Your password" />  
             <div id="TnC">
               By clicking Sign Up, you agree to our Terms and conditions.
             </div>
@@ -32,14 +33,15 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <div class="span12 tab2" id="referrer">
           <h2>Signup to post a job</h2>
           <form method="post" action='signupReferrer.php' >
-            <input type="text"  id="firstname" name="firstname" placeholder="First Name" class="cform-text" size="40" title="Your first name" />
-            <input type="text"  id="lastname" name="lastname" placeholder="Last Name" class="cform-text" size="40" title="Your last name" />
-            <input type="text"  id="email" name ="email" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
-            <input type="password"  id="password" name ="password" placeholder="Password" class="cform-text" title="Your password" />  
+            <input type="text"  id="r_firstname" name="r_firstname" placeholder="First Name" class="cform-text" size="40" title="Your first name" />
+            <input type="text"  id="r_lastname" name="r_lastname" placeholder="Last Name" class="cform-text" size="40" title="Your last name" />
+            <input type="text"  id="r_email" name ="r_email" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
+            <input type="password"  id="r_password" name ="r_password" placeholder="Password" class="cform-text" title="Your password" />  
             <div id="TnC">
               By clicking Sign Up, you agree to our Terms and conditions.
             </div>
             <input type="submit" value="Sign Up" class="cform-submit">
+            </form>
           </div>
         </div>
       </div>
@@ -54,7 +56,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
    });
   </script>
   <!--******************** Feature ********************-->
-    <section id="feature" class="single-page scrollblock">
+    <section id="signin" class="single-page scrollblock">
       <div class="container">
         <div class="row">
           <div class="span12">
@@ -64,9 +66,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
               <p>fully functional and user-friendy web app.</p>
             </article> -->
             <h2>Let me Sign in</h2>
-            <form method="post" action='signupReferrer1.php' >
-              <input type="text"  id="email1" name ="email1" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
-              <input type="password"  id="password1" name ="password1" placeholder="Password" class="cform-text" title="Your password" />  
+            <form method="post" action='signin.php' >
+              <input type="text"  id="username" name ="username" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
+              <input type="password"  id="password" name ="password" placeholder="Password" class="cform-text" title="Your password" />  
               <input type="submit" value="Sign In" class="cform-submit">
             </form>
           </div>
