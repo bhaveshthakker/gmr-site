@@ -5,7 +5,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
-<?php require_once 'scripts.php'; ?>    
+<?php require_once('scripts.php'); ?>    
 <body>
 <?php 
 	require_once 'header.php';

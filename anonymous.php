@@ -20,8 +20,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             echo $_SESSION['error'];
           ?>
           <form method="post" action='signupApplicant.php' >
-            <input type="text"  id="a_firstname" name="a_firstname" placeholder="First Name" class="cform-text" size="40" title="Your first name" />
-            <input type="text"  id="a_lastname" name="a_lastname" placeholder="Last Name" class="cform-text" size="40" title="Your last name" />
+            <input type="text"  id="a_firstname" name="a_firstname" placeholder="First Name" class="cform-text input-half" size="40" title="Your first name" />
+            <input type="text"  id="a_lastname" name="a_lastname" placeholder="Last Name" class="cform-text input-half" size="40" title="Your last name" />
             <input type="text"  id="a_email" name ="a_email" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
             <input type="password"  id="a_password" name ="a_password" placeholder="Password" class="cform-text" title="Your password" />  
             <div id="TnC">
@@ -33,8 +33,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <div class="span12 tab2" id="referrer">
           <h2>Signup to post a job</h2>
           <form method="post" action='signupReferrer.php' >
-            <input type="text"  id="r_firstname" name="r_firstname" placeholder="First Name" class="cform-text" size="40" title="Your first name" />
-            <input type="text"  id="r_lastname" name="r_lastname" placeholder="Last Name" class="cform-text" size="40" title="Your last name" />
+            <input type="text"  id="r_firstname" name="r_firstname" placeholder="First Name" class="cform-text input-half" size="40" title="Your first name" />
+            <input type="text"  id="r_lastname" name="r_lastname" placeholder="Last Name" class="cform-text input-half" size="40" title="Your last name" />
             <input type="text"  id="r_email" name ="r_email" placeholder="you@yourmail.com" class="cform-text" size="40" title="Your email" />
             <input type="password"  id="r_password" name ="r_password" placeholder="Password" class="cform-text" title="Your password" />  
             <div id="TnC">
@@ -42,6 +42,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             </div>
             <input type="submit" value="Sign Up" class="cform-submit">
             </form>
+
           </div>
         </div>
       </div>

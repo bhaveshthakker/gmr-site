@@ -309,7 +309,7 @@ input[type=text] {
 	height: 2.5em;
 	width:50%;
 }
-#firstname,  #lastname  {
+.input-half {
 	height: 2.5em;
 	width:24.5%;
 }
