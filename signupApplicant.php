@@ -32,8 +32,8 @@ $result = mysql_query($query)  or die(mysql_error());
 echo $result;
 if($result) { //User created go and create session variable
 	$_SESSION['username'] = $_POST['a_email'];
-	header('location:home');
+	header('location:home.php');
 }else {
-	header('location:home?sub=e');
+	header('location:home.php?sub=e');
 }
 ?>

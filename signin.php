@@ -15,7 +15,7 @@ $result = mysql_query($query) or die(mysql_error());
 //echo $result;
 if(mysql_num_rows($result)==1) {
 	$_SESSION['username'] = $username;
-	header('location:home');
+	header('location:home.php');
 } else {
 	die('Username/password incorrect!');
 }
