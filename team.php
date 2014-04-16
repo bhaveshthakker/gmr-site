@@ -6,13 +6,13 @@
         <div class="row">
           <div class="span2 offset1">
             <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-1.jpg" alt=""> </div>
-            <h3>Andrew</h3>
+            <h3>Malav</h3>
             <div class="job-position">web designer</div>
           </div>
           <!-- ./span2 -->
           <div class="span2">
             <div class="teamalign"> <img class="team-thumb img-circle" src="img/portrait-2.jpg" alt=""> </div>
-            <h3>Stephen</h3>
+            <h3>Bhavesh</h3>
             <div class="job-position">web developer</div>
           </div>
           <!-- ./span2 -->
