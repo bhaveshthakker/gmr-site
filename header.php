@@ -1,7 +1,5 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-  session_start();
-}
+require_once('session_initialize.php'); 
 ?>
 <div class="navbar-wrapper">
   <div class="navbar navbar-inverse navbar-fixed-top">

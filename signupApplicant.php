@@ -1,7 +1,5 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-	session_start();
-}
+require_once('session_initialize.php'); 
 require_once 'database.php';
 require_once 'validation.php';
 $fname = test_input($_POST['a_firstname']);

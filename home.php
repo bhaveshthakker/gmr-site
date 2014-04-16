@@ -1,11 +1,9 @@
 <?php 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-	session_start();
-} 
+require_once('session_initialize.php'); 
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
-<?php require_once('scripts.php'); ?>    
+<?php require_once 'scripts.php'; ?>    
 <body>
 <?php 
 	require_once 'header.php';

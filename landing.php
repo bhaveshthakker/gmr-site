@@ -1,6 +1,6 @@
-<?php if (session_status() !== PHP_SESSION_ACTIVE) {
-  session_start();
-}?>
+<?php
+require_once('session_initialize.php'); 
+?>
 <!--<div id="headerwrap">
   <header class="clearfix">
     <h1><span>Welcome!</span> <?php //echo $_SESSION['username']; ?>.</h1>
@@ -42,14 +42,14 @@
     <!-- Four columns -->
     <div class="row" id="menu">
       <?php require_once 'updateprofile.php'; ?>
-   <div id="tab-2">Tab 2</div>
-   <div id="tab-3">Tab 3</div>
-   <div id="tab-4">Tab 4</div>
+      <div id="tab-2">Tab 2</div>
+      <div id="tab-3">Tab 3</div>
+      <div id="tab-4">Tab 4</div>
       <ul>
         <li>
           <a href="#tab-1">
             <h2>Update my profile</h2>
-         </a>
+          </a>
         </li>
         <li>
           <a href="#tab-2">
