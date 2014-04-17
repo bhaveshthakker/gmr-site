@@ -36,6 +36,7 @@
     <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
     <!-- Load LocalScroll -->
     <script type="text/javascript" src="js/jquery.localscroll-min.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
 	
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/upload.js"></script>
