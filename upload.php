@@ -1,4 +1,6 @@
 <?php
+require_once('session_initialize.php');
+require_once('database.php');
 if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
 {
     ############ Edit settings ##############
@@ -26,17 +28,8 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
     switch(strtolower($_FILES['resume']['type']))
         {
             //allowed file types
-            case 'image/png': 
-            case 'image/gif': 
-            case 'image/jpeg': 
-            case 'image/pjpeg':
-            case 'text/plain':
-            case 'text/html': //html file
-            case 'application/x-zip-compressed':
             case 'application/pdf':
             case 'application/msword':
-            case 'application/vnd.ms-excel':
-            case 'video/mp4':
                 break;
             default:
                 die( 'Unsupported File!'); //output error
@@ -45,12 +38,20 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
     $File_Name          = strtolower($_FILES['resume']['name']);
     $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
     $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
-    $NewFileName        = $Random_Number.$File_Ext; //new file name
-    
+    $NewFileName        = $_SESSION['username'].'-'.date('Y-m-d-h-i-s').$File_Ext; //new file name
+    $username = $_SESSION['username'];
     if(move_uploaded_file($_FILES['resume']['tmp_name'], $UploadDirectory.$NewFileName ))
        {
         // do other stuff 
-               die( 'Success! File Uploaded.');
+
+        $query = "update applicants set resume_path='$UploadDirectory$NewFileName' where username='$username'";
+        //echo $query;
+        $result = mysql_query($query);
+            if($result) {
+                die( 'Success! File Uploaded.');
+            } else {
+                die('Database update failed'.mysql_error());
+            }
     }else{
         die( 'error uploading File!');
     }

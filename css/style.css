@@ -254,21 +254,23 @@ ul#menu-main > li > a:hover {
 ---------------------------------------------------------------------------------------------------------- */
 #headerwrap {
 	width: 100%;
-	background: url(../img/top-bg.jpg) #0b333f no-repeat center center fixed;
+	background: #312A1E;
+	/*background: url(../img/top-bg.jpg) #0b333f no-repeat center center fixed;*/	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	;
-	min-height: 800px;
+	min-height: 600px;
 	/*margin-top: -60px;*/
-	padding-top:60px;
+	padding-top:100px;
 	text-align:center;
+
 }
 #headerwrap h1 {
 	color: #FFFFFF;
 	font-family: 'Patua One', cursive;
-	font-size: 3em;
+	font-size: 2.5em;
 	font-weight: 400;
 	margin: 1em 0;
 }
@@ -544,10 +546,23 @@ blockquote.mega .cite {
 	font-weight:300;
 }
 /* News */
-section#news {
-	background: url("../img/grey-cardboard-bg.png") repeat 0 0;
+section#informatica {
+	/*background: url("../img/grey-cardboard-bg.png") repeat 0 0;*/
+	width: 100%;
+	background: url(../img/top-bg.jpg) #0b333f no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	;
+	min-height: 500px;
+	/*margin-top: -60px;*/
+	padding-top:60px;
+	text-align:center;
+	box-shadow: inset 0px -11px 18px -9px #312A1E;
+
 }
-section#news .align {
+section#informatica .align {
 	font-size: 6em;
 	text-align: center;
 }
@@ -573,12 +588,16 @@ article .inside {
 	line-height: 2;
 	margin-right: 5px;
 }
-#news h1 {
-	font-size: 3em;
-	margin-bottom: 1em;
+#informatica h1 {
+	font-size: 2.5em;
+	margin-bottom: 0em;
 	margin-top: 0.5em;
+	color: #FFFFFF;
 }
-#news h2 {
+#informatica h1 span {
+	color: #f0bf00;
+}
+#informatica h2 {
 	font-size: 21px;
 	margin-top: 24px;
 	margin-bottom: 16px;
@@ -815,13 +834,13 @@ footer p {
 .btn {
 	font-family: 'Patua One', cursive;
 	color: #fff;
-	width: 185px;
+	width: 256px;
 	height: 20px;
 	text-shadow: none;
 	font-size: 1.3125em; /* 21px */
 	padding: 1em 0.5em;
 	letter-spacing: 0.05em;
-	margin: 4.5em auto 0;
+	margin: 1em auto;
 	display: block;
 	border: 0;
 	text-transform: none;
@@ -1003,10 +1022,10 @@ footer p {
 
 	/* Portfolio & News */
 
-	#news h1 {
+	#informatica h1 {
 		background: transparent;
 	}
-	#news h1 span {
+	#informatica h1 span {
 		background: transparent;
 		padding: 0;
 	}
@@ -1194,7 +1213,9 @@ footer p {
 		}
 
 		/*************************Anonymous page tabs***********************/
-
+		#TnC {
+			color: #FFFFFF;
+		}
 		#signupForms .ui-tabs-nav { 
 			height: 2.35em; 
 			text-align: center;

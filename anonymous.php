@@ -3,7 +3,7 @@ require_once('session_initialize.php');
 ?>
 <div id="headerwrap">
   <header class="clearfix">
-    <h1><span>Get Me Reffered!</span> A beginning of the end your job search.</h1>
+    <!--<h1><span>Get Me Reffered!</span> A beginning of the end your job search.</h1> -->
     <div class="container">
       <div class="row" id="signupForms">
 
@@ -77,4 +77,3 @@ require_once('session_initialize.php');
       </div>
       <!-- ./container -->
     </section>
-  <hr>
