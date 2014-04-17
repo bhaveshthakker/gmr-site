@@ -1,3 +1,5 @@
+use gmr;
+
 CREATE TABLE `company_details` (
  `id` int(6) NOT NULL,
  `name` varchar(100) NOT NULL,

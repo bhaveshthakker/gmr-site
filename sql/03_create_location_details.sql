@@ -1,3 +1,5 @@
+use gmr;
+
 CREATE TABLE `location_details` (
  `id` int(6) NOT NULL,
  `name` varchar(50) NOT NULL,
