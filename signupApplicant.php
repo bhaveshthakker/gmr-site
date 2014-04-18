@@ -79,9 +79,9 @@ $mail->Port       = 25	;                    // set the SMTP port for the GMAIL s
 $mail->Username   = "mail@getmereferred.com"; // SMTP account username
 $mail->Password   = "Admin123!";        // SMTP account password
 
-$mail->SetFrom('malav@getmereferred.com', 'Get Me Referred');
+$mail->SetFrom('mail@getmereferred.com', 'Get Me Referred');
 
-$mail->AddReplyTo("malav42@gmail.com","Malav Shah");
+$mail->AddReplyTo("bhavesh@getmereferred.com","GMR Admin");
 
 $mail->Subject    = "Thanks for registering, just 1 more step left from awesomeness";
 

@@ -6,7 +6,7 @@ class SMTPClient
 	{
 		$SmtpServer="mail.getmereferred.com";
 		$SmtpPort="25"; //default
-		$SmtpUser="malav@getmereferred.com";
+		$SmtpUser="mail@getmereferred.com";
 		$SmtpPass="Admin123!";
 		$this->SmtpServer = $SmtpServer;
 		$this->SmtpUser = base64_encode ($SmtpUser);
