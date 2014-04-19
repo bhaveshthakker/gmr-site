@@ -349,6 +349,20 @@ label {
 	margin-right: 1% !important;
 	font-size: 1em;
 }
+
+.message-display {
+	font-size: 13px;
+	padding: 0.3% 1% 0.3% 1%;
+	background-color: #FCF2CF;
+	border: 1px solid #f0c36d!important;
+	-webkit-transition: color 0.5s linear;
+	z-index: 1032;
+	position: fixed;
+	left: 18%;
+	text-align: center;
+	width: 57%;
+	display: none;
+}
 /*========== Social Icons ==========*/
 ul.icon {
 	font-size:54px;
@@ -577,7 +591,7 @@ article.post {
 article .inside {
 	margin: 18px 24px 24px;
 	padding-top: 1em;
-	background: url("../img/dot-row-2.png") repeat-x scroll 0 0 transparent !important;
+	/*background: url("../img/dot-row-2.png") repeat-x scroll 0 0 transparent !important;*/
 }
 .post-date {
 	color: #A5A5A2;
@@ -741,7 +755,7 @@ hr.featurette-divider {
 	margin: 3em 0;
 	border-width: 0;
 	height: 9px;
-	background: url("../img/dot-row-3-lt.png") repeat-x;
+	/*background: url("../img/dot-row-3-lt.png") repeat-x;*/
 }
 /* ---------------------------------------------------------------------------------------------------------- 
 06 Footer ------------------------------------------------------------
@@ -834,7 +848,7 @@ footer p {
 .btn {
 	font-family: 'Patua One', cursive;
 	color: #fff;
-	width: 256px;
+	width: 258px;
 	height: 20px;
 	text-shadow: none;
 	font-size: 1.3125em; /* 21px */

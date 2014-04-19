@@ -2,6 +2,7 @@
 <?php
 require_once('session_initialize.php'); 
 require_once('database.php');
+include_once("analyticstracking.php");
 $act_key = $_GET['key'];
 /*echo "<br />comming here<br />";
 echo $act_key;*/

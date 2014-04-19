@@ -1,6 +1,7 @@
 <?php 
 
 require_once('session_initialize.php'); 
+include_once("analyticstracking.php");
 
 include_once 'database.php';
 

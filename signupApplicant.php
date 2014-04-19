@@ -3,6 +3,7 @@ require_once('session_initialize.php');
 require_once('database.php');
 require_once('validation.php');
 require_once('PHPMailer/class.phpmailer.php');
+include_once("analyticstracking.php");
 $fname = test_input($_POST['a_firstname']);
 /*if(!isset($fname) || empty($fname)) {
 	$error = $error."First name is required</br>";

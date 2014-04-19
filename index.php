@@ -1,5 +1,6 @@
 <?php
 require_once('session_initialize.php'); 
+include_once("analyticstracking.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
