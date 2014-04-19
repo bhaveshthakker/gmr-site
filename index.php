@@ -6,7 +6,9 @@ require_once('session_initialize.php');
 <?php require_once('scripts.php'); ?>    
 <body class="main">
   <?php 
+  include_once('analyticstracking.php');
   require_once('header.php');
+
 
   if(isset($_SESSION['username']) && $_SESSION['username']!='') { //user session is active
     require_once 'landing.php';   
