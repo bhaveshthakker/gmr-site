@@ -13,7 +13,5 @@ function is_session_started()
     }
     return FALSE;
 }
-
-// Example
 if ( is_session_started() === FALSE ) session_start();
 ?>

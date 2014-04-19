@@ -1,16 +1,6 @@
 <?php
 require_once('session_initialize.php'); 
 ?>
-<?php
-    if(isset($_SESSION['display_message'])) {
-        echo '<li><a title="Sign out" href="signout.php" >Sign Out</a></li>'; 
-    } else {
-        echo '<li><a title="Sign In" href="#signin" >Sign In</a></li>';
-    }
-?>
-<div id="message-display" class="well well-sm message-display alert alert-error">
-    <span id="message-diplay-span"></span>
-</div>
 <div class="navbar-wrapper">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
@@ -24,8 +14,9 @@ require_once('session_initialize.php');
             <li><a title="Home" href="#top">Home</a></li>
            <!-- <li><a title="portfolio" href="#portfolio">Portfolio</a></li>
            <li><a title="services" href="#services">Services</a></li> -->
-           <li><a title="news" href="#news">News</a></li>
+           <li><a title="news" href="#news">How it Works</a></li>
            <li><a title="team" href="#team">Team</a></li>
+           <li><a title="services" href="#news">Blog</a></li>
            <li><a title="contact" href="#contact">Contact</a></li>
            <?php
            if(isset($_SESSION['username'])) {

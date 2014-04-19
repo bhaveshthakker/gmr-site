@@ -1,11 +1,10 @@
 <?php
 require_once('session_initialize.php'); 
-include_once("analyticstracking.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 <?php require_once('scripts.php'); ?>    
-<body>
+<body class="main">
   <?php 
   require_once('header.php');
 
@@ -25,6 +24,7 @@ include_once("analyticstracking.php");
   <!--******************** Testimonials Section ********************-->
   <?php //require_once 'testimonials.php'; ?>
   <!--******************** News Section ********************-->
+  <?php require_once('news.php'); ?>
   <!--******************** Team Section ********************-->
   <?php require_once('team.php'); ?>
   <!--******************** Contact Section ********************-->

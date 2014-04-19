@@ -41,7 +41,7 @@ require_once('session_initialize.php');
     <h1><span>Welcome,</span> <?php echo $_SESSION['firstname'].'!'; ?></h1>
     <!-- Four columns -->
     <div class="row" id="menu">
-      <?php require_once 'updateprofile.php'; ?>
+      <div id="tab-1"><?php require_once 'updateprofile.php'; ?></div>
       <div id="tab-2">Tab 2</div>
       <div id="tab-3">Tab 3</div>
       <div id="tab-4">Tab 4</div>
@@ -53,18 +53,18 @@ require_once('session_initialize.php');
         </li>
         <li>
           <a href="#tab-2">
-            <h2>Print Design</h2>
+            <h2>Tab 2</h2>
           </a>
         </li>
         <li>
           <a href="#tab-3">
            <!-- /.span3 -->
-           <h2>Ecommerce</h2>
+           <h2>Tab 3</h2>
          </a>
        </li>
        <li>
         <a href="#tab-4">
-         <h2>Marketing</h2>
+         <h2>Tab 4</h2>
        </a>
      </li>
    </ul>

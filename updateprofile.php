@@ -1,4 +1,3 @@
-<div id="tab-1">
 	<form id="updateProfile" method="post" action='upload.php' enctype="multipart/form-data" >
 		<label for="resume" >Resume:</label>
 		<input type="file" name="resume" id="resume"/>
@@ -10,4 +9,3 @@
 		<input type="submit" value="Update" class="cform-submit">
 
 	</form>
-</div>

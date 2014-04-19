@@ -3,7 +3,6 @@ require_once('session_initialize.php');
 require_once('database.php');
 require_once('validation.php');
 require_once('PHPMailer/class.phpmailer.php');
-include_once("analyticstracking.php");
 $fname = test_input($_POST['a_firstname']);
 /*if(!isset($fname) || empty($fname)) {
 	$error = $error."First name is required</br>";
@@ -29,7 +28,7 @@ $password = test_input($_POST['a_password']);
 $password=sha1($password);
 $ip = getRealIpAddr();
 $salt = 'e8rfdvfgh689kjjkooi';
-	$activation_key = sha1($email.$salt);
+$activation_key = sha1($email.$salt);
 
 $query = "insert into applicants (firstname,lastname,username,password,ip_address, status_type, activation_key) values(".
 	"'$fname','$lname','$email','$password','$ip', 'PENDING_REGISTRATION','$activation_key')";
@@ -80,9 +79,9 @@ $mail->Port       = 25	;                    // set the SMTP port for the GMAIL s
 $mail->Username   = "mail@getmereferred.com"; // SMTP account username
 $mail->Password   = "Admin123!";        // SMTP account password
 
-$mail->SetFrom('mail@getmereferred.com', 'Get Me Referred');
+$mail->SetFrom('malav@getmereferred.com', 'Get Me Referred');
 
-$mail->AddReplyTo("bhavesh@getmereferred.com","GMR Admin");
+$mail->AddReplyTo("malav42@gmail.com","Malav Shah");
 
 $mail->Subject    = "Thanks for registering, just 1 more step left from awesomeness";
 
