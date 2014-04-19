@@ -13,10 +13,6 @@ require_once('session_initialize.php');
         </ul>
         <div class="span12 tab1" id="applicant">
           <h2>Signup to get yourself reffered</h2>
-          <?php 
-          if(isset($_GET['sub']) && $_GET['sub'] == 'e')
-            echo $_SESSION['error'];
-          ?>
           <form method="post" action='signupApplicant.php' >
             <input type="text"  id="a_firstname" name="a_firstname" placeholder="First Name" class="cform-text input-half" size="40" title="Your first name" />
             <input type="text"  id="a_lastname" name="a_lastname" placeholder="Last Name" class="cform-text input-half" size="40" title="Your last name" />

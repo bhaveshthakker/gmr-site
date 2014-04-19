@@ -41,5 +41,6 @@
 	
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/upload.js"></script>
+    <script type="text/javascript" src="js/alert-messages.js"></script>
     <!-- prettyPhoto Initialization -->
 </head>
