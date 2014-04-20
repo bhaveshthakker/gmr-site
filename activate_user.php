@@ -19,7 +19,7 @@ if(mysql_num_rows($result)==1) {
 	echo $_SESSION['firstname'];*/
 	header('location:index.php');
 } else {
-	$_SESSION['alert-message'] = "WRONG_ACTIVATION_KEY";
+	$_SESSION['alert-message'] = "WRONG_ACTIVATION_KEY-5";
 	header('location:index.php');
 }
 

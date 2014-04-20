@@ -25,6 +25,7 @@ $password = test_input($_POST['a_password']);
 	$error = $error."Password is required</br>";
 }*/
 //if(empty($error)) {
+
 $password=sha1($password);
 $ip = getRealIpAddr();
 $salt = 'e8rfdvfgh689kjjkooi';
@@ -33,17 +34,20 @@ $activation_key = sha1($email.$salt);
 $query = "insert into applicants (firstname,lastname,username,password,ip_address, status_type, activation_key) values(".
 	"'$fname','$lname','$email','$password','$ip', 'PENDING_REGISTRATION','$activation_key')";
 //echo $query;
-$result = mysql_query($query)  or die(mysql_error());
+$result = mysql_query($query)  or $db_error = mysql_errno();
+if(isset($db_error)) {
+	$_SESSION['alert-message'] = "mysql_".$db_error."-15";
+}
 //echo $result;
 
 if($result) { //User created go and create session variable
-	$_SESSION['username'] = $_POST['a_email'];
-	$_SESSION['firstname'] = $fname;
-	$_SESSION['lastname'] = $lname;
-	phpMailerSend($activation_key);
-	header('location:index.php');
+	$isMailSent = phpMailerSend($activation_key, $_POST['a_email'], $fname, $lname);
+	if($isMailSent) {
+		$_SESSION['alert-message'] = "ACTIVATION_SENT-15";
+		header('location:index.php');
+	}
 }else {
-	header('location:index.php?sub=e');
+	header('location:index.php');
 }
 function getRealIpAddr(){
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -57,7 +61,8 @@ function getRealIpAddr(){
 	}
 	return $ip;
 }
-function phpMailerSend($act_key) {
+
+function phpMailerSend($act_key, $email_addr, $firstname, $lastname) {
 
 //include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
 	$url = $_SERVER['HTTP_HOST'].'/activate_user.php?key=';
@@ -79,9 +84,9 @@ $mail->Port       = 25	;                    // set the SMTP port for the GMAIL s
 $mail->Username   = "mail@getmereferred.com"; // SMTP account username
 $mail->Password   = "Admin123!";        // SMTP account password
 
-$mail->SetFrom('malav@getmereferred.com', 'Get Me Referred');
+$mail->SetFrom('mail@getmereferred.com', 'Get Me Referred');
 
-$mail->AddReplyTo("malav42@gmail.com","Malav Shah");
+$mail->AddReplyTo("mail@getmereferred.com","GMR Admin");
 
 $mail->Subject    = "Thanks for registering, just 1 more step left from awesomeness";
 
@@ -89,16 +94,18 @@ $mail->AltBody    = "We will soon come here with the activation link, once we do
 
 $mail->MsgHTML($body);
 
-$address = $_SESSION['username'];
-$mail->AddAddress($address, $_SESSION['firstname'].' '.$_SESSION['lastname']);
+$mail->AddAddress($email_addr, $firstname.' '.$lastname);
 
 //$mail->AddAttachment("img/portrait-3.jpg");      // attachment
 //$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 
 if(!$mail->Send()) {
 	echo "Mailer Error: " . $mail->ErrorInfo;
+	$_SESSION['alert-message'] = $mail->ErrorInfo;
+	return false;
 } else {
 	echo "Message sent!";
+	return true;
 }
 
 }

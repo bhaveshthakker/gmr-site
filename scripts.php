@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/jquery-ui-1.10.2.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui-1.10.2.js"></script>
-   
+   <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
     <!-- Load ScrollTo -->
     <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
     <!-- Load LocalScroll -->
@@ -42,5 +42,6 @@
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/upload.js"></script>
     <script type="text/javascript" src="js/alert-messages.js"></script>
+    
     <!-- prettyPhoto Initialization -->
 </head>
