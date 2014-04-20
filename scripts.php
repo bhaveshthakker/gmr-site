@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>Get Me Reffered - A beginning of the end your job search</title>
+    <title>Get Me Referred - A beginning of the end your job search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="css/jquery-ui-1.10.2.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui-1.10.2.js"></script>
+
+    <script type="text/javascript" 
+    ></script>
    
     <!-- Load ScrollTo -->
     <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
@@ -41,5 +44,6 @@
 	
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/upload.js"></script>
+    <script type="text/javascript" src="js/responsive.tabs.js"></script>
     <!-- prettyPhoto Initialization -->
 </head>

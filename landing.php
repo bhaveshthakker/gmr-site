@@ -40,7 +40,7 @@ require_once('session_initialize.php');
     <!--<div class="align"><i class="icon-cog-circled"></i></div> -->
     <h1><span>Welcome,</span> <?php echo $_SESSION['firstname'].'!'; ?></h1>
     <!-- Four columns -->
-    <div class="row" id="menu">
+    <div class="row tabs" id="menu">
       <div id="tab-1"><?php require_once 'updateprofile.php'; ?></div>
       <div id="tab-2">Tab 2</div>
       <div id="tab-3">Tab 3</div>

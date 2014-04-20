@@ -1,4 +1,10 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !\.php$
-RewriteRule .* $0.php [L]
+# Helicon Ape version 3.1.0.124
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ htaccess.php [QSA,L]
+</IfModule>
+
+
