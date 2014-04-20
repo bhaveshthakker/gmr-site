@@ -331,13 +331,32 @@ input[type=text], input[type=password] {
 #firstname {
 	margin-right: 1%;
 }
+
+.message-display {
+    font-size: 1em;
+	padding: 0.3% 1% 0.3% 1%;
+	background-color: #FCF2CF;
+	border: 1px solid #f0c36d!important;
+	-webkit-transition: color 0.5s linear;
+	z-index: 1032;
+	position: fixed;
+	left: 20%;
+	text-align: center;
+	width: 57%;
+	top: 4.75em;
+    display: none;
+}
+
+.message-anchor {
+	color: #0000FF!important;
+}
+
 /*input[type=password] {
 	height: 2.1em;
 	width:49%;
 	}*/
 	input[type=submit] {
 		display: block;
-
 		font-family: 'Patua One', cursive;
 		color: #fff;
 		width: 185px;
@@ -1305,4 +1324,60 @@ footer p {
 			display: none;
 			position: absolute;
 			right: 0;
+		}
+
+		#lean_overlay {
+		    position: fixed;
+		    z-index:600;
+		    top: 0px;
+		    left: 0px;
+		    height:100%;
+		    width:100%;
+		    background: #000;
+		    display: none;
+		}
+		#forget_password_popup {
+			width: 404px;
+			padding-bottom: 2px;
+			display: none;
+			background: #FFF;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+			-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+			-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+		}
+
+		#forget_password_popup-header {
+			background-color: #eff1ef;
+			padding: 18px 18px 14px 18px;
+			border-bottom: 1px solid #CCC;
+			border-top-left-radius: 5px;
+			-moz-border-radius-topleft: 5px;
+			-webkit-border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			-moz-border-radius-topright: 5px;
+			-webkit-border-top-right-radius: 5px;
+		}
+		#forget_password_popup .txt-fld {
+			position: relative;
+			margin: auto;
+			padding: 14px 20px;
+			border-bottom: 1px solid #EEE;
+			text-align: center;
+
+		}
+		#forget_password_popup .txt-fld input{
+			width: 100% !important;
+		}
+		.modal_close {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+			display: block;
+			width: 14px;
+			height: 14px;
+			background: url(../img/modal_close.png);
+			z-index: 2;
 		}

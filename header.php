@@ -1,6 +1,21 @@
 <?php
 require_once('session_initialize.php'); 
 ?>
+
+<div id="message-display" class="well well-sm message-display alert alert-error">
+    <span id="message-diplay-span">
+      Hey, Your activation link is wrong, please try to register again from here
+    </span>
+</div>
+<?php 
+          if(isset($_SESSION['alert-message']) && $_SESSION['alert-message'] != '') {
+            ?>
+          <script type="text/javascript">
+            gmr.message.showMessages(<?php echo '"'.$_SESSION['alert-message'].'"';?>);
+          </script>
+<?}?>
+<?php unset($_SESSION['alert-message']);?>
+
 <div class="navbar-wrapper">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
