@@ -57,13 +57,13 @@ require_once('session_initialize.php');
           </a>
         </li>
         <li>
-          <a href="#tabs-3">
+          <a href="#tab-3">
            <!-- /.span3 -->
            <h2>Tab 3</h2>
          </a>
        </li>
        <li>
-        <a href="#tabs-4">
+        <a href="#tab-4">
          <h2>Tab 4</h2>
        </a>
      </li>

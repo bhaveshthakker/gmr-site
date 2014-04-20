@@ -13,7 +13,7 @@ require_once('session_initialize.php');
           <script type="text/javascript">
             gmr.message.showMessages(<?php echo '"'.$_SESSION['alert-message'].'"';?>);
           </script>
-<?}?>
+<?php } ?>
 <?php unset($_SESSION['alert-message']);?>
 
 <div class="navbar-wrapper">

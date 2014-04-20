@@ -1,6 +1,70 @@
 <?php
 require_once('session_initialize.php'); 
+require_once('fbmain.php'); 
 ?>
+ <script type="text/javascript">
+            function closePopup() {
+              console.log('inside close');
+              self.opener.location.href='http://test.getmereferred.com/gmr-site/index.php';
+              self.close();
+          }
+      </script>
+<?php
+$config['baseurl']="http://test.getmereferred.com/gmr-site/index.php";
+if ($fbme) {
+  $logoutUrl = $facebook->getLogoutUrl(
+    array('next'=> 'http://test.getmereferred.com/gmr-site/signout.php',));
+} else {
+ $loginUrl = $facebook->getLoginUrl(
+  array(
+    'display'  => 'popup',
+    'redirect_uri'   => $config['baseurl'] . '?loginsucc=1',
+    'scope' => 'email, user_birthday, user_location, read_stream, friends_likes'
+    )
+  );
+}
+if ($fbme && isset($_REQUEST['loginsucc'])){
+    //only if valid session found and loginsucc is set
+
+    //after facebook redirects it will send a session parameter as a json value
+    //now decode them, make them array and sort based on keys
+
+  $_SESSION['username'] = $fbme[email];
+  $_SESSION['firstname'] =  $fbme[first_name];
+    //now set the cookie so that next time user don't need to click login again
+  //setCookie('fbs_' . "{$fbconfig['appid']}", $strCookie);
+  //print_r($fbme);
+  echo '<script type="text/javascript"> closePopup(); </script>';
+}
+?>
+<?php if (isset($loginUrl)) { ?>
+      <script type="text/javascript">
+
+      var newwindow;
+      var intId;
+      function login(){
+        var screenX  = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,
+        screenY  = typeof window.screenY != 'undefined' ? window.screenY : window.screenTop,
+        outerWidth = typeof window.outerWidth != 'undefined' ? window.outerWidth : document.body.clientWidth,
+        outerHeight = typeof window.outerHeight != 'undefined' ? window.outerHeight : (document.body.clientHeight - 22),
+        width  = 500,
+        height  = 270,
+        left   = parseInt(screenX + ((outerWidth - width) / 2), 10),
+        top   = parseInt(screenY + ((outerHeight - height) / 2.5), 10),
+        features = (
+          'width=' + width +
+          ',height=' + height +
+          ',left=' + left +
+          ',top=' + top
+          );
+        
+        newwindow=window.open('<?=$loginUrl?>','Login_by_facebook',features);
+        
+        if (window.focus) {newwindow.focus()}
+         return false;
+     }
+      </script>
+<?php } ?>
 <div id="headerwrap">
   <header class="clearfix">
     <!--<h1><span>Get Me Reffered!</span> A beginning of the end your job search.</h1> -->
@@ -23,22 +87,8 @@ require_once('session_initialize.php');
               By clicking Sign Up, you agree to our Terms and conditions.
             </div>
             <input type="submit" value="Sign Up" class="cform-submit">
-            <a href="login.php?provider=facebook" id="FBSignUpApplicant" style="color:#FFFFFF;" class="provider">Sign Up using Facebook </a>
-            <a href="login.php?provider=google" id="GoogleSignUpApplicant" style="color:#FFFFFF;" class="provider">Sign Up using Google </a>            
+            <a href="#" id="FBSignUpApplicant" onClick="login();return false;" style="color:#FFFFFF;" class="provider">Sign Up using Facebook </a>
           </form>
-          <script type="text/javascript">
-            $(document).ready(function() {
-             $('.provider').click(function(e) {
-              e.preventDefault();
-              var w = 400, h = 200;
-              var url = $(this).attr('href');
-              var title = 'Sign Up';
-              var left = (screen.width/2)-(w/2);
-              var top = (screen.height/2)-(h/2);
-              return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-             });
-          }); 
-          </script>
         </div>
         <div class="span12 tab2" id="tabs-2">
           <h2>Signup to post a job</h2>
@@ -91,20 +141,20 @@ require_once('session_initialize.php');
       <!-- ./container -->
     </section>
     <div id="forget_password_popup" style="display: none; position: fixed; opacity: 1; z-index: 11000; left: 50%; margin-left: -202px; top: 200px;">
-        <div id="signup-ct">
-            <div id="forget_password_popup-header">
-                <h2>Please, help us to find you!</h2>
-                <p>We need your email address</p>
-                <a class="modal_close" href="#"></a>
-            </div>
-            <form method="post" action='forget_password_submit.php'>
-                <div class="txt-fld">
-                    <input id="forgot_password_email" name="forgot_password_email" placeholder="Your Email address" type="text">
-                </div>
-                <div>
-                    <input type="submit" class="cform-submit"></input>
-                </div>
-            </form>
+      <div id="signup-ct">
+        <div id="forget_password_popup-header">
+          <h2>Please, help us to find you!</h2>
+          <p>We need your email address</p>
+          <a class="modal_close" href="#"></a>
+        </div>
+        <form method="post" action='forget_password_submit.php'>
+          <div class="txt-fld">
+            <input id="forgot_password_email" name="forgot_password_email" placeholder="Your Email address" type="text">
+          </div>
+          <div>
+            <input type="submit" class="cform-submit"></input>
+          </div>
+        </form>
       </div>
     </div>
 
