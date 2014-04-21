@@ -22,7 +22,7 @@
   </script>
 <?php
 require_once('fbmain.php');
-$config['baseurl']="http://test.getmereferred.com/gmr-site/index.php";
+$config['baseurl']="http://test.getmereferred.com/gmr-site/facebookLogin.php";
 if ($fbme) {
   $logoutUrl = $facebook->getLogoutUrl(
     array('next'=> 'http://test.getmereferred.com/gmr-site/signout.php',));

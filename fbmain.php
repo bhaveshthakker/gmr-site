@@ -14,7 +14,7 @@
     $facebook = new Facebook(array(
       'appId'  => $fbconfig['appid'],
       'secret' => $fbconfig['secret'],
-      'cookie' => false,
+      'cookie' => false
     ));
  
     // We may or may not have this data based on a $_GET or $_COOKIE based session.

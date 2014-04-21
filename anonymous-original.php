@@ -1,102 +1,69 @@
 <?php
 require_once('session_initialize.php'); 
-require_once('fbmain.php');
-require_once('database.php');
-
-$config['baseurl']='http://'.$_SERVER['HTTP_HOST'];
+require_once('fbmain.php'); 
 ?>
-<script type="text/javascript">
-  function closePopup() {
-    console.log('inside close');
-    self.opener.location.href= "<?php echo $config['baseurl']; ?>";
-    self.close();
-  }
-</script>
+ <script type="text/javascript">
+            function closePopup() {
+              console.log('inside close');
+              self.opener.location.href='http://test.getmereferred.com/gmr-site/index.php';
+              self.close();
+          }
+      </script>
 <?php
-
-// Generating facebook login & logout urls
-
-
-
+$config['baseurl']="http://test.getmereferred.com/gmr-site/index.php";
 if ($fbme) {
-  $logoutUrl = $facebook->getLogoutUrl(array(
-    'next'=> $config['baseurl'].'/signout.php')
-  );
+  $logoutUrl = $facebook->getLogoutUrl(
+    array('next'=> 'http://test.getmereferred.com/gmr-site/signout.php',));
 } else {
  $loginUrl = $facebook->getLoginUrl(
   array(
     'display'  => 'popup',
-    'redirect_uri'   => $config['baseurl'] . '/index.php?loginsucc=1',
-    'scope' => 'email, user_education_history, user_location, user_work_history'
+    'redirect_uri'   => $config['baseurl'] . '?loginsucc=1',
+    'scope' => 'email, user_birthday, user_location, read_stream, friends_likes'
     )
   );
 }
-
 if ($fbme && isset($_REQUEST['loginsucc'])){
     //only if valid session found and loginsucc is set
 
     //after facebook redirects it will send a session parameter as a json value
     //now decode them, make them array and sort based on keys
 
-  $email = $_SESSION['username'] = $fbme['email'];
-  $fname = $_SESSION['firstname'] =  $fbme['first_name'];
-  $lname = $fbme['last_name'];
-  $ip = getRealIpAddr();
-
+  $_SESSION['username'] = $fbme[email];
+  $_SESSION['firstname'] =  $fbme[first_name];
     //now set the cookie so that next time user don't need to click login again
   //setCookie('fbs_' . "{$fbconfig['appid']}", $strCookie);
   //print_r($fbme);
-  $query = "insert into applicants (firstname,lastname,username,ip_address, status_type) values(".
-    "'$fname','$lname','$email','$ip', 'FACEBOOK_REGISTRATION')";
-//echo $query;
-$result = mysql_query($query)  or $db_error = mysql_errno();
-//echo mysql_error();
-if(isset($db_error)) {
-  $_SESSION['alert-message'] = "mysql_".$db_error."-15";
-  unset($_SESSION['username']);
-}
-echo '<script type="text/javascript"> closePopup(); </script>';
-}
-function getRealIpAddr(){
-  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    //check if ip from share internet
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-  } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    //to check if ip is passed from proxy
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-  } else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-  }
-  return $ip;
+  echo '<script type="text/javascript"> closePopup(); </script>';
 }
 ?>
 <?php if (isset($loginUrl)) { ?>
-<script type="text/javascript">
+      <script type="text/javascript">
 
-  var newwindow;
-  var intId;
-  function login(){
-    var screenX  = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,
-    screenY  = typeof window.screenY != 'undefined' ? window.screenY : window.screenTop,
-    outerWidth = typeof window.outerWidth != 'undefined' ? window.outerWidth : document.body.clientWidth,
-    outerHeight = typeof window.outerHeight != 'undefined' ? window.outerHeight : (document.body.clientHeight - 22),
-    width  = 500,
-    height  = 270,
-    left   = parseInt(screenX + ((outerWidth - width) / 2), 10),
-    top   = parseInt(screenY + ((outerHeight - height) / 2.5), 10),
-    features = (
-      'width=' + width +
-      ',height=' + height +
-      ',left=' + left +
-      ',top=' + top
-      );
-
-    newwindow=window.open('<?php echo $loginUrl ?>','Login_by_facebook',features);
-
-    if (window.focus) {newwindow.focus()}
-     return false;
- }
-</script>
+      var newwindow;
+      var intId;
+      function login(){
+        var screenX  = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,
+        screenY  = typeof window.screenY != 'undefined' ? window.screenY : window.screenTop,
+        outerWidth = typeof window.outerWidth != 'undefined' ? window.outerWidth : document.body.clientWidth,
+        outerHeight = typeof window.outerHeight != 'undefined' ? window.outerHeight : (document.body.clientHeight - 22),
+        width  = 500,
+        height  = 270,
+        left   = parseInt(screenX + ((outerWidth - width) / 2), 10),
+        top   = parseInt(screenY + ((outerHeight - height) / 2.5), 10),
+        features = (
+          'width=' + width +
+          ',height=' + height +
+          ',left=' + left +
+          ',top=' + top
+          );
+        
+        newwindow=window.open('<?=$loginUrl?>','Login_by_facebook',features);
+        
+        if (window.focus) {newwindow.focus()}
+         return false;
+     }
+      </script>
 <?php } ?>
 <div id="headerwrap">
   <header class="clearfix">
@@ -111,10 +78,6 @@ function getRealIpAddr(){
         </ul>
         <div class="span12 tab1" id="tabs-1">
           <h2>Signup to get yourself reffered</h2>
-          <a href="#" id="FBSignUpApplicant" onClick="login();return false;" style="color:#FFFFFF;">
-            <img src="img/facebook-login-button.png"/>
-          </a>
-          <div style="color: white;margin: 1em;">Or</div>
           <form method="post" action='signupApplicant.php' >
             <input type="text"  id="a_firstname" name="a_firstname" placeholder="First Name" class="cform-text input-half" size="40" title="Your first name" />
             <input type="text"  id="a_lastname" name="a_lastname" placeholder="Last Name" class="cform-text input-half" size="40" title="Your last name" />
@@ -124,6 +87,8 @@ function getRealIpAddr(){
               By clicking Sign Up, you agree to our Terms and conditions.
             </div>
             <input type="submit" value="Sign Up" class="cform-submit">
+            <a href="#" id="FBSignUpApplicant" onClick="login();return false;" style="color:#FFFFFF;" class="provider">Sign Up using Facebook </a>
+            <?php echo '"'.$_SERVER['HTTP_HOST'].'"'; ?>
           </form>
         </div>
         <div class="span12 tab2" id="tabs-2">

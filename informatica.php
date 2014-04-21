@@ -1,7 +1,7 @@
  <section id="informatica" class="single-page scrollblock">
       <div class="container">
        <!-- <div class="align"><i class="icon-pencil-circled"></i></div> -->
-        <h1><span>Get Me Reffered!</span> A beginning of the end your job search.</h1>
+        <h1><span>Get Me Referred!</span> A beginning of the end your job search.</h1>
         <a href="#headerwrap" class="btn btn-large">Get Started in 10 seconds</a> 
 
         <!-- Three columns -->
