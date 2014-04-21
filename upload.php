@@ -45,6 +45,7 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
         // do other stuff 
 
         $query = "update applicants set resume_path='$UploadDirectory$NewFileName' where username='$username'";
+        $_SESSION['resume_path'] = $_SESSION['resume_path'] = $UploadDirectory.$NewFileName;
         //echo $query;
         $result = mysql_query($query);
             if($result) {
