@@ -11,6 +11,10 @@
 			message = "Congragulations! Your password has been changed successfully";			
 		} else if (key === 'FORGOT_PASSWORD_MAIL_SENT') {
 			message = "Hey, we have sent you an email that will help you reset the password.";			
+		} else if(key === 'FACEBOOK_REGISTRATION_SUCCESSFULL') {
+			message = "Thanks! You are now registered. Go and update your profile."
+		} else {
+			message = key;
 		}
 		return message;
 	}
