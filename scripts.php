@@ -16,6 +16,7 @@
             <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="css/chosen.css">
             <style>
                 body {
                     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -33,6 +34,7 @@
           <script src="js/jquery.js"></script>
           <script src="js/jquery-ui-1.10.2.js"></script>
           <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+          <script src="js/chosen.jquery.js" type="text/javascript"></script>
           <!-- Load ScrollTo -->
           <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
           <!-- Load LocalScroll -->
