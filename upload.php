@@ -1,6 +1,7 @@
 <?php
 require_once('session_initialize.php');
 require_once('database.php');
+
 if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
 {
     ############ Edit settings ##############
@@ -62,3 +63,8 @@ else
 {
     die( 'Something wrong with upload! Is "upload_max_filesize" set correctly?');
 }
+
+
+
+
+?>
