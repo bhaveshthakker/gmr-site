@@ -31,6 +31,7 @@
           <link rel="shortcut icon" href="img/favicon.ico">
           <!-- JQuery -->
           <link rel="stylesheet" href="css/jquery-ui-1.10.2.css">
+          <link rel="stylesheet" type="text/css" href="css/form-validator.css"></link >
           <script src="js/jquery.js"></script>
           <script src="js/jquery-ui-1.10.2.js"></script>
           <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
@@ -42,6 +43,7 @@
           <script type="text/javascript" src="js/underscore.js"></script>
 
           <script type="text/javascript" src="js/jquery.form.js"></script>
+          <script src="js/jquery.form-validator.min.js"></script>
           <script type="text/javascript" src="js/upload.js"></script>
           <script type="text/javascript" src="js/responsive.tabs.js"></script>
           <script type="text/javascript" src="js/alert-messages.js"></script>

@@ -5,7 +5,7 @@
 
    <!-- Three columns -->
    <div class="row">
-   <div class="span6" style="padding-top: 5em;">
+   <div class="span6" style="padding-top: 2em;padding-bottom: 2em;">
       <h1><span>Get Me Referred!</span></h1>
       <p>HackerRank is built for programmers, by programmers, to be
         engaging and fun no matter your background or skill level.
