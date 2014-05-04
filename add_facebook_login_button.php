@@ -9,7 +9,9 @@ $config['baseurl']='http://'.$_SERVER['HTTP_HOST'];
 <script type="text/javascript">
   function closePopup() {
     console.log('inside close');
+    
     window.opener.location.href= "<?php echo $config['baseurl']; ?>";
+    //window.parent.location.reload();
     self.close();
   }
 </script>
