@@ -237,7 +237,7 @@ em {
 }
 .navbar-inverse .navbar-inner {
 	background-repeat: repeat;
-	background-color: #0b333f;
+	background-color: #141823; /*#0b333f*/
 	border-color: #f0bf00;
 }
 .navbar-wrapper {
@@ -322,7 +322,7 @@ input[type=text]:focus,  input[type=password]:focus {
 }
 input[type=text], input[type=password] {
 	height: 2.5em;
-	width:50%;
+	/*width:50%;*/
 }
 .input-half {
 	height: 2.5em;
@@ -411,15 +411,20 @@ input[type=text], input[type=password] {
 	#signin input[type=submit]:hover, #signin input[type=submit]:active {
 		background: #43413e !important;
 	}
+	#signin input[type=text],#signin input[type=password] {
+	height: 2.5em;
+	width:50%;
+	}
 	#signin {
 		background-color: #f0bf00 !important;
 		/*background: url("../img/yellow.png") repeat-x 0 0;*/
-		height: auto;
+		min-height: 500px;
 		z-index: 500;
 		box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
 		-moz-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
 		-webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
 		text-align: center;
+		padding-top:90px;
 	}
 	#signin article {
 		text-align: center;
@@ -582,7 +587,7 @@ input[type=text], input[type=password] {
 	section#informatica {
 		/*background: url("../img/grey-cardboard-bg.png") repeat 0 0;*/
 		width: 100%;
-		background: url(../img/top-bg.jpg) #0b333f no-repeat center center fixed;
+		background: url(../img/top-bg2.jpg) #0b333f no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -590,7 +595,7 @@ input[type=text], input[type=password] {
 		;
 		min-height: 500px;
 		/*margin-top: -60px;*/
-		padding-top:60px;
+		padding-top:90px;
 		text-align:center;
 		box-shadow: inset 0px -11px 18px -9px #312A1E;
 
@@ -641,7 +646,14 @@ input[type=text], input[type=password] {
 		font-size: 21px;
 		margin-top: 24px;
 		margin-bottom: 16px;
-		color: #312A1E;
+		color: #FFFFFF; /*#312A1E*/
+		clear: right;
+	}
+	#informatica p {
+		font-size: 21px;
+		margin-top: 24px;
+		margin-bottom: 16px;
+		color: #FFFFFF; /*#312A1E*/
 		clear: right;
 	}
 	/* Team and Contact */
@@ -1263,6 +1275,7 @@ footer p {
 		/*************************Anonymous page tabs***********************/
 		#TnC {
 			color: #FFFFFF;
+			margin: 1em;
 		}
 		#signupForms .ui-tabs-nav { 
 			height: 2.35em; 
