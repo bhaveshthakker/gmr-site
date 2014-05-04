@@ -15,7 +15,7 @@ require_once('session_initialize.php');
       //echo '<br>'.'session exist'.$_SESSION['username'];
   } else { //user session is not active --go anonymous
     require_once('informatica.php');
-    require_once('anonymous.php');
+    require_once('loginForm.php');
       //echo '<br>'.'session not exist'.$_SESSION['username'];
   }
   ?>
