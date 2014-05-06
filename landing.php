@@ -40,47 +40,27 @@ require_once('session_initialize.php');
     <!--<div class="align"><i class="icon-cog-circled"></i></div> -->
     <h1><span>Welcome,</span> <?php echo $_SESSION['firstname'].'!'; ?></h1>
     <!-- Four columns -->
-    <div class="row tabs" id="menu">
-      <div id="tabs-1"><?php require_once 'updateprofile.php'; ?></div>
-      <div id="tabs-2">Tab 2</div>
-      <div id="tabs-3">Tab 3</div>
-      <div id="tabs-4">Tab 4</div>
-      <ul>
-        <li>
-          <a href="#tabs-1">
-            <h2>Update my profile</h2>
-          </a>
-        </li>
-        <li>
-          <a href="#tabs-2">
-            <h2>Tab 2</h2>
-          </a>
-        </li>
-        <li>
-          <a href="#tabs-3">
-           <!-- /.span3 -->
-           <h2>Tab 3</h2>
-         </a>
-       </li>
-       <li>
-        <a href="#tabs-4">
-         <h2>Tab 4</h2>
-       </a>
-     </li>
-   </ul>
- </div>
- <!-- /.row -->
-</div>
-<!-- /.container -->
+    <div class="row" id="menu">
+      <div class="span2"></div>
+      <div class="span8">
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Update my profile</a></li>
+            <li><a href="#tab2" data-toggle="tab">Search Jobs</a></li>
+            <li><a href="#tab3" data-toggle="tab">Feedback/Questions</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab1"><?php require_once 'updateprofile.php'; ?></div>
+            <div  class="tab-pane fade" id="tab2">Tab 2</div>
+            <div  class="tab-pane fade" id="tab3">Tab 3</div>
+            <div  class="tab-pane fade" id="tab4">Tab 4</div>
+          </div>
+        </div>
+      </div>
+      <div class="span2"></div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
 </section>
 <hr>
-<script type="text/javascript">
-  $('#menu').tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" ).removeClass("ui-widget input");
-  
-  $('#menu').localScroll({
-    onBefore:function( e, anchor, $target ){
-      e.stop();
-    }
-  });
-  $( "#menu li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-</script>

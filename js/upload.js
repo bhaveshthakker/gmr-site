@@ -17,8 +17,7 @@ $(document).ready(function() {
 function afterSuccess()
 {
 	$('#submit-btn').show(); //hide submit button
-	$('#loading-img').hide(); //hide submit button
-	$('#progressbox').delay( 1000 ).fadeOut(); //hide progress bar
+	$('.progress').delay( 1000 ).fadeOut(); //hide progress bar
 
 }
 
@@ -66,7 +65,6 @@ function beforeSubmit(){
 		}
 				
 		$('#submit-btn').hide(); //hide submit button
-		$('#loading-img').show(); //hide submit button
 		$("#output").html("");  
 	}
 	else
@@ -81,13 +79,9 @@ function beforeSubmit(){
 function OnProgress(event, position, total, percentComplete)
 {
     //Progress bar
-	$('#progressbox').show();
-    $('#progressbar').width(percentComplete + '%') //update progressbar percent complete
-    $('#statustxt').html(percentComplete + '%'); //update status text
-    if(percentComplete>50)
-        {
-            $('#statustxt').css('color','#000'); //change status text to white after 50%
-        }
+	$('.progress').show();
+    //$('#progressbar').width(percentComplete + '%') //update progressbar percent complete
+    $('.progress .bar').width(percentComplete + '%'); //update status text
 }
 
 //function to format bites bit.ly/19yoIPO

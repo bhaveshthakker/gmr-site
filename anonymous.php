@@ -17,15 +17,14 @@ require_once('add_facebook_login_button.php');
       size="40" title="Your full name" data-validation="required" 
       data-validation-error-msg="Please enter your full name" /></div>
       <div><input type="text"  id="a_email" name ="a_email"
-      placeholder="you@yourmail.com" class="cform-text" 
+      placeholder="Your email" class="cform-text" 
       size="40" title="Your email" 
       data-validation="email" 
       data-validation-error-msg="Please enter your correct email address"/></div>
       <div><input type="password"  id="a_password" name ="a_password" 
       placeholder="Password" class="cform-text" title="Your password" 
-       data-validation="length" data-validation-length="min8"
-       data-validation-help="Your password should be minimum of 8 characters"
-
+      data-validation="required" 
+      data-validation-error-msg="Please enter your password"
       /> </div>
       <div id="TnC">
         By clicking Sign Up, you agree to our Terms and conditions.
@@ -37,7 +36,9 @@ require_once('add_facebook_login_button.php');
 <script>
 
     $.validate({
+      form : '#signupForms',
       modules : 'security',
+      validateOnBlur : true,
       scrollToTopOnError : false // Set this property to true if you have a long form
     });
 </script>

@@ -21,6 +21,6 @@ if(mysql_num_rows($result)==1) {
 	$_SESSION['company'] = $row[3];
 	header('location:index.php');
 } else {
-	die('Username/password incorrect!');
+	header('location:index.php?login-failed=1#signin');
 }
 ?>

@@ -609,7 +609,7 @@
                 borderColorOnError : 'red', // Border color of elements which value is invalid, empty string to not change border color
                 errorMessageClass : 'form-error', // class name of div containing error messages when validation fails
                 validationRuleAttribute : 'data-validation', // name of the attribute holding the validation rules
-                validationErrorMsgAttribute : 'data-validation-error-msg', // define custom err msg inline with element
+                validationErrorMsgAttribute : '', // define custom err msg inline with element
                 errorMessagePosition : 'element', // Can be either "top" or "element" or "custom"
                 errorMessageTemplate : {
                     container: '<div class="{errorMessageClass} alert alert-danger">{messages}</div>',
