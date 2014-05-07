@@ -41,8 +41,8 @@ require_once('session_initialize.php');
     <h1><span>Welcome,</span> <?php echo $_SESSION['firstname'].'!'; ?></h1>
     <!-- Four columns -->
     <div class="row" id="menu">
-      <div class="span2"></div>
-      <div class="span8">
+      <div class="span1"></div>
+      <div class="span10">
         <div class="tabbable">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">Update my profile</a></li>
@@ -57,7 +57,7 @@ require_once('session_initialize.php');
           </div>
         </div>
       </div>
-      <div class="span2"></div>
+      <div class="span1"></div>
     </div>
     <!-- /.row -->
   </div>

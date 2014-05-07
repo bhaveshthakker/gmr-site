@@ -25,53 +25,60 @@ if(!is_null($fbme)) {
   );
 } else {
   $loginUrl = $facebook->getLoginUrl(
-  array(
-    'display'  => 'popup',
-    'redirect_uri'   => $config['baseurl'] . '/index.php?loginsucc=1',
-    'scope' => 'email, user_education_history, user_location, user_work_history'
-    )
-  );
+    array(
+      'display'  => 'popup',
+      'redirect_uri'   => $config['baseurl'] . '/index.php?loginsucc=1',
+      'scope' => 'email, user_education_history, user_location, user_work_history'
+      )
+    );
 }
 if (!is_null($fbme) && isset($_REQUEST['loginsucc'])){
     //only if valid session found and loginsucc is set
-    
-    $email = $fbme['email'];
-    $fname =  $fbme['first_name'];
-    $lname = $fbme['last_name'];
-    $ip = getRealIpAddr();
+
+  $email = $fbme['email'];
+  $fname =  $fbme['first_name'];
+  $lname = $fbme['last_name'];
+  $ip = getRealIpAddr();
 
     //now set the cookie so that next time user don't need to click login again
     //setCookie('fbs_' . "{$fbconfig['appid']}", $strCookie);
     //print_r($fbme);
-    $query = "select username from applicants where username='$email'";
+  $query = "select username,resume_path, company from applicants where username='$email'";
 
-    $result = mysql_query($query) or  die("Error on checking FB user"+mysql_error());
+  $result = mysql_query($query) or  die("Error on checking FB user"+mysql_error());
     //user already registerred using facebook 
     // Go and create session
-    if(mysql_num_rows($result)==1) { 
-        $_SESSION['username'] = $email;
-        $_SESSION['firstname'] = $fname;
-    }
+  if(mysql_num_rows($result)==1) { 
+    $row = mysql_fetch_row($result);
+    $_SESSION['username'] = $email;
+    $_SESSION['firstname'] = $fname;
+    $_SESSION['resume_path'] = $row[1];
+    print_r($row);
+    if(isset($row[2]))
+      $_SESSION['company'] = $row[2];
+    else
+      $_SESSION['company'] = "";
+  }
     //User not registered 
     //Go and insert into applicant tables
-    else {
-      $query = "insert into applicants (firstname,lastname,username,ip_address, status_type) values(".
-              "'$fname','$lname','$email','$ip', 'FACEBOOK_REGISTRATION')";
-      echo $query;
-      $result = mysql_query($query)  or $db_error = mysql_errno();
-      echo mysql_error();
-      if(isset($db_error)) {
-        $_SESSION['alert-message'] = "mysql_".$db_error."-15";
-        unset($_SESSION['username']);
-      } else {
-          $_SESSION['username'] = $email;
-          $_SESSION['firstname'] = $fname;
+  else {
+    $query = "insert into applicants (firstname,lastname,username,ip_address, status_type) values(".
+      "'$fname','$lname','$email','$ip', 'FACEBOOK_REGISTRATION')";
+echo $query;
+$result = mysql_query($query)  or $db_error = mysql_errno();
+echo mysql_error();
+if(isset($db_error)) {
+  $_SESSION['alert-message'] = "mysql_".$db_error."-15";
+  unset($_SESSION['username']);
+} else {
+  $_SESSION['username'] = $email;
+  $_SESSION['firstname'] = $fname;
           //$isMailSent = phpMailerSend('', $email, $fname, $lname);
-          $_SESSION['alert-message'] = "FACEBOOK_REGISTRATION_SUCCESSFULL-10";
-      }
-    }
-    
-   echo '<script type="text/javascript"> closePopup(); </script>';
+  $_SESSION['alert-message'] = "FACEBOOK_REGISTRATION_SUCCESSFULL-10";
+}
+}
+
+echo '<script type="text/javascript"> closePopup(); </script>';
 }
 function getRealIpAddr(){
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -87,7 +94,7 @@ function getRealIpAddr(){
 }
 ?>
 <script type="text/javascript">
-    var newwindow;
+  var newwindow;
   var intId;
   function login(){
     var screenX  = typeof window.screenX != 'undefined' ? window.screenX : window.screenLeft,

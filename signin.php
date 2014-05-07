@@ -18,8 +18,12 @@ if(mysql_num_rows($result)==1) {
 	$_SESSION['username'] = $row[0];
 	$_SESSION['firstname'] = $row[1];
 	$_SESSION['resume_path'] = $row[2];
-	$_SESSION['company'] = $row[3];
-	header('location:index.php');
+	print_r($row);
+	if(isset($row[3]))
+		$_SESSION['company'] = $row[3];
+	else
+		$_SESSION['company'] = "";
+	//header('location:index.php');
 } else {
 	header('location:index.php?login-failed=1#signin');
 }
