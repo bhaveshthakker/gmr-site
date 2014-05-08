@@ -1,17 +1,28 @@
 <div class="row">
 	<div class="span8">
+		<div id="updatePreferencesMessage" class="alert alert-success" style="display:none"></div>
+	</div>
+	<div class="span8">
 		<form id="updatePreferences" method="post" action='update_preferences.php'>
-			<select id="chosen-plugin-companies" name="chosen-plugin-companies" data-placeholder="Choose your preferred companies..." class="chosen-select" multiple style="width:100%;" tabindex="4">
-				<option value=""></option>
-			</select>
-
+			<div class="row">
+				<div class="span4 top-buffer">
+					<select id="chosen-plugin-companies" name="chosen-plugin-companies" data-placeholder="    Your Preferred Companies" class="chosen-select" multiple style="width:100%;" tabindex="4">
+						<option></option>
+					</select>
+				</div>
+				<div class="span4 top-buffer">
+					<select id="chosen-plugin-cities" data-placeholder="    Your Preferred Cities" class="chosen-select" multiple style="width:100%;" tabindex="4">
+						<option></option>
+					</select>
+				</div>
+			</div>
 			<!-- <textarea rows="3" placeholder="List the name of your preferred locations"></textarea> -->
-			<select id="chosen-plugin-cities" data-placeholder="Choose your preferred cities..." class="chosen-select" multiple style="width:100%;" tabindex="4">
-				<option value=""></option>
-			</select>
-			<input type="hidden" name="allSelectedCompanies" id="allSelectedCompanies"></input>
-			<span id="updatePreferencesMessage"></span>
-			<input type="submit" value="Save Preferences" class="cform-submit">
+			<div class="row top-buffer">
+				<div class="span8">
+					<input type="hidden" name="allSelectedCompanies" id="allSelectedCompanies"></input>
+					<input type="submit" value="Update" class="cform-submit">
+				</div>
+			</div>
 		</form>
 	</div>
 </div>
@@ -33,10 +44,10 @@
 			for(var counter in companies)
 			{
 				if(company_ids.indexOf(companies[counter].id) !== -1) {
-					$("#chosen-plugin-companies").append('"<option selected="selected" value="' + companies[counter].id + 
+					$("#chosen-plugin-companies").append('<option selected="selected" value="' + companies[counter].id + 
 						'">' + companies[counter].name + '</option>');
 				} else {
-					$("#chosen-plugin-companies").append('"<option value="' + companies[counter].id + 
+					$("#chosen-plugin-companies").append('<option value="' + companies[counter].id + 
 						'">' + companies[counter].name + '</option>');
 				}
 			}
@@ -56,7 +67,7 @@
 			var companies = JSON.parse(msg);
 			for(var counter in companies)
 			{
-				$("#chosen-plugin-cities").append('"<option value="' + companies[counter].id + 
+				$("#chosen-plugin-cities").append('<option value="' + companies[counter].id + 
 					'">' + companies[counter].name + '</option>');
 				$("#city").append('<option value="' + companies[counter].id + 
 					'">' + companies[counter].name + '</option>');
@@ -78,7 +89,7 @@
 <script>
 	$(document).ready(function() { 
 		var options = { 
-				target:   '#output',   // target element(s) to be updated with server response 
+				target:   '#updatePreferencesMessage',   // target element(s) to be updated with server response 
 				beforeSubmit:  beforeSubmit,  // pre-submit callback 
 				success:       afterSuccess,  // post-submit callback 
 				uploadProgress: OnProgress, //upload progress callback 
@@ -104,10 +115,9 @@
 		//function after succesful file upload (when server response)
 		function afterSuccess()
 		{
-			$("#updatePreferencesMessage").html("Your preferences have been updated");
-			setTimeout(function(){ 
-				$("#updatePreferencesMessage").html("");
-			}, 5000);
+			$("#updatePreferencesMessage").html("Your preferences have been updated").show();
+			$("#updatePreferencesMessage").delay(5000).fadeOut('slow');
+			
 		}
 
 		//function to check file size before uploading.

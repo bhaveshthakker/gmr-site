@@ -30,12 +30,12 @@
           <!-- Favicon -->
           <link rel="shortcut icon" href="img/favicon.ico">
           <!-- JQuery -->
-          <link rel="stylesheet" href="css/jquery-ui-1.10.2.css">
+          <!--<link rel="stylesheet" href="css/jquery-ui-1.10.2.css">-->
           <link rel="stylesheet" type="text/css" href="css/form-validator.css"></link >
           <link rel="stylesheet" type="text/css" href="css/datepicker.css"></link >
 
           <script src="js/jquery.js"></script>
-          <script src="js/jquery-ui-1.10.2.js"></script>
+          <!--<script src="js/jquery-ui-1.10.2.js"></script>-->
           <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
           <script src="js/chosen.jquery.js" type="text/javascript"></script>
           <!-- Load ScrollTo -->
@@ -47,7 +47,6 @@
           <script type="text/javascript" src="js/jquery.form.js"></script>
           <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
           <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-          <script type="text/javascript" src="js/upload.js"></script>
           <script type="text/javascript" src="js/alert-messages.js"></script>
           <script type="text/javascript">
             function closePopup() {

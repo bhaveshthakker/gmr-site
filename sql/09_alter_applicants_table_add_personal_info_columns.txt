@@ -1,0 +1,3 @@
+USE gmr;
+
+ALTER TABLE `applicants` ADD `dob` DATE NULL DEFAULT NULL AFTER `password`, ADD `mobile` INT(10) NULL DEFAULT NULL AFTER `dob`, ADD `current_city` INT(5) NULL DEFAULT NULL AFTER `mobile`, ADD `pincode` INT(6) NULL DEFAULT NULL AFTER `current_city`;

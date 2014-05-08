@@ -621,7 +621,7 @@ input[type=text], input[type=password] {
 	article .inside {
 		margin: 18px 24px 24px;
 		padding-top: 1em;
-		background: url("../img/dot-row-2.png") repeat-x scroll 0 0 transparent !important;
+		/*background: url("../img/dot-row-2.png") repeat-x scroll 0 0 transparent !important;*/
 	}
 	.post-date {
 		color: #A5A5A2;
@@ -793,7 +793,7 @@ input[type=text], input[type=password] {
 		margin: 3em 0;
 		border-width: 0;
 		height: 9px;
-		background: url("../img/dot-row-3-lt.png") repeat-x;
+		/*background: url("../img/dot-row-3-lt.png") repeat-x;*/
 	}
 /* ---------------------------------------------------------------------------------------------------------- 
 06 Footer ------------------------------------------------------------
@@ -1317,6 +1317,9 @@ footer p {
 	margin-top: 30px;
 }
 
+.progress-striped .bar {
+	background-color: #f0bf00;
+}
 .chosen-container-single .chosen-default, .chosen-container-single .chosen-single {
 	/* color: #fff; */
 	background: none #fff !important;
@@ -1341,4 +1344,16 @@ footer p {
 .chosen-container-single .chosen-single div {
 	margin-top: 13px;
 	width: 15px !important;
+}
+
+.chosen-container-multi .chosen-choices {
+	min-height: 2.1em;
+	background: none #fff !important;
+	padding: 0.5em !important;
+	font-family: 'Open Sans', sans serif !important;
+	font-size: 1.25em;
+	border: 0 !important;
+	margin-bottom: 1% !important;
+	box-shadow: none !important;
+	border-radius: 4px;
 }

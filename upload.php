@@ -27,33 +27,34 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
     
     //allowed file type Server side check
     switch(strtolower($_FILES['resume']['type']))
-        {
+    {
             //allowed file types
-            case 'application/pdf':
-            case 'application/msword':
-                break;
-            default:
+        case 'application/pdf':
+        case 'application/msword':
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        break;
+        default:
                 die( 'Unsupported File!'); //output error
-    }
-    
-    $File_Name          = strtolower($_FILES['resume']['name']);
+            }
+            
+            $File_Name          = strtolower($_FILES['resume']['name']);
     $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
     $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
     $NewFileName        = $_SESSION['username'].'-'.date('Y-m-d-h-i-s').$File_Ext; //new file name
     $username = $_SESSION['username'];
     if(move_uploaded_file($_FILES['resume']['tmp_name'], $UploadDirectory.$NewFileName ))
-       {
+    {
         // do other stuff 
 
         $query = "update applicants set resume_path='$UploadDirectory$NewFileName' where username='$username'";
         $_SESSION['resume_path'] = $_SESSION['resume_path'] = $UploadDirectory.$NewFileName;
         //echo $query;
         $result = mysql_query($query);
-            if($result) {
-                die( 'Success! File Uploaded.');
-            } else {
-                die('Database update failed'.mysql_error());
-            }
+        if($result) {
+            die( 'Success! File Uploaded.');
+        } else {
+            die('Database update failed'.mysql_error());
+        }
     }else{
         die( 'error uploading File!');
     }
@@ -63,8 +64,4 @@ else
 {
     die( 'Something wrong with upload! Is "upload_max_filesize" set correctly?');
 }
-
-
-
-
 ?>

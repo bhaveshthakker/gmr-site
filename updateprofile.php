@@ -10,7 +10,7 @@
 		</section>
 		<section class="top-buffer">
 			<legend><span class="order-bullet">3.</span>Upload your resume</legend>	
-			<?php include('update_resume_form.php') ?>;
+			<?php include('update_resume_form.php') ?>
 		</section>
 	</div>
 	<div class="span1"></div>	
