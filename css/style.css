@@ -654,12 +654,17 @@ input[type=text], input[type=password] {
 		margin-bottom: 16px;
 		color: #FFFFFF; /*#312A1E*/
 		clear: right;
+		font-weight: bold;
+	}
+
+	.footer-wrapper-custom {
+		background: #141823;
 	}
 	/* Team and Contact */
 
 	section#team, section#contact {
-		color: #e4e5e2;
-		background:#312A1E;
+		/*color: #e4e5e2;*/
+		/*background:#312A1E;*/
 	}
 	section#team .align, section#contact .align {
 		font-size: 6em;
@@ -667,8 +672,8 @@ input[type=text], input[type=password] {
 	}
 	#team h1, #contact h1 {
 		font-size: 3em;
-		margin-bottom: 1em;
-		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		margin-top: 0em;
 	}
 	#contact, #team {
 		padding-top: 4.75em;
@@ -743,7 +748,7 @@ input[type=text], input[type=password] {
 		font-size: 1.3125em; /* 21px */
 		padding:0.5em;
 		letter-spacing: 0.05em;
-		margin: 0 0 20px 0;
+		margin: 0 auto;
 		display: block;
 		border: 0;
 		text-transform: none;
@@ -804,7 +809,7 @@ input[type=text], input[type=password] {
 }
 footer {
 	text-align: center;
-	color: #1a1a1a;
+	color: #fff;
 	font-weight: bold;
 }
 footer p {

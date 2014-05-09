@@ -29,9 +29,9 @@ require_once('session_initialize.php');
             <li><a title="Home" href="#top">Home</a></li>
            <!-- <li><a title="portfolio" href="#portfolio">Portfolio</a></li>
            <li><a title="services" href="#services">Services</a></li> -->
-           <li><a title="news" href="#news">How it Works</a></li>
+           <!-- <li><a title="news" href="#news">How it Works</a></li>
            <li><a title="team" href="#team">Team</a></li>
-           <li><a title="services" href="#news">Blog</a></li>
+           <li><a title="services" href="#news">Blog</a></li> -->
            <li><a title="contact" href="#contact">Contact</a></li>
            <?php
            if(isset($_SESSION['username'])) {

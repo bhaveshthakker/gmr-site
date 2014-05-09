@@ -26,9 +26,9 @@ require_once('session_initialize.php');
   <!--******************** Testimonials Section ********************-->
   <?php //require_once 'testimonials.php'; ?>
   <!--******************** News Section ********************-->
-  <?php require_once('news.php'); ?>
+  <?php //require_once('news.php'); ?>
   <!--******************** Team Section ********************-->
-  <?php require_once('team.php'); ?>
+  <?php //require_once('team.php'); ?>
   <!--******************** Contact Section ********************-->
   <?php require_once('contact.php'); ?>
   <?php require_once('footer.php'); ?>

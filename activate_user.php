@@ -14,7 +14,7 @@ $result = mysql_query($query)  or die(mysql_error());
 if(mysql_num_rows($result)==1) {
 
 	$row = mysql_fetch_row($result);
-	$query = 'update applicants set status_type = "REGISTERED" where username = $row[0]';
+	$query = 'update applicants set status_type = "REGISTERED" where username = "$row[0]"';
 	$result = mysql_query($query)  or die(mysql_error());
 	$_SESSION['username'] = $row[0];
 	$_SESSION['firstname'] = $row[1];

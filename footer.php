@@ -1,8 +1,8 @@
 <section id="last"></section>
-    <div class="footer-wrapper">
+    <div class="footer-wrapper footer-wrapper-custom">
       <div class="container">
         <footer>
-          <small>&copy; 2013 BM Networks. All rights reserved.</small>
+          <small>&copy; GetMeReferred. All rights reserved.</small>
         </footer>
       </div>
       <!-- ./container -->
