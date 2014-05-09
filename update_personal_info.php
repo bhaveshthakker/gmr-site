@@ -19,6 +19,4 @@ if($result) {
 } else {
     die('Database update failed'.mysql_error());
 }
-
-
 ?>

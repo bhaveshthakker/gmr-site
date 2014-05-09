@@ -6,16 +6,6 @@ require_once('php_mailer.php');
 
 $config['baseurl']='http://'.$_SERVER['HTTP_HOST'];
 ?>
-<script type="text/javascript">
-  function closePopup() {
-    console.log('inside close');
-    
-    window.opener.location.href= "<?php echo $config['baseurl']; ?>";
-    //window.parent.location.reload();
-    self.close();
-  }
-</script>
-
 <?php
 //print_r($fbme);
 // Generating facebook login & logout urls
@@ -53,7 +43,7 @@ if (!is_null($fbme) && isset($_REQUEST['loginsucc'])){
     $_SESSION['username'] = $email;
     $_SESSION['firstname'] = $fname;
     $_SESSION['resume_path'] = $row[1];
-    print_r($row);
+    //print_r($row);
     if(isset($row[2]))
       $_SESSION['company'] = $row[2];
     else
@@ -74,11 +64,18 @@ if(isset($db_error)) {
   $_SESSION['username'] = $email;
   $_SESSION['firstname'] = $fname;
           //$isMailSent = phpMailerSend('', $email, $fname, $lname);
-  $_SESSION['alert-message'] = "FACEBOOK_REGISTRATION_SUCCESSFULL-10";
+  $_SESSION['alert-message'] = "FACEBOOK_REGISTRATION_SUCCESSFUL-10";
 }
 }
-
-echo '<script type="text/javascript"> closePopup(); </script>';
+?>
+<script type="text/javascript">
+  (function closePopup() {
+    //console.log('inside close');
+    window.opener.location.href= "<?php echo $config['baseurl']; ?>";
+    window.close();
+  })();
+</script>
+<?php
 }
 function getRealIpAddr(){
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -112,7 +109,7 @@ function getRealIpAddr(){
       ',top=' + top
       );
 
-    newwindow=window.open('<?php echo $loginUrl ?>','Login_by_facebook',features);
+    var newwindow=window.open('<?php echo $loginUrl ?>','Login_by_facebook',features);
 
     if (window.focus) {newwindow.focus()}
      return false;

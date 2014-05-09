@@ -72,10 +72,9 @@
 			beforeSubmit:  OnProgress //upload progress callback 
 		}; 
 		
-		$("#updatePersonalInfo").submit(function() { 
+		$("#updatePersonalInfo").submit(function(e) { 
 			$(this).ajaxSubmit(options);  			
-			// always return false to prevent standard browser submit and page navigation 
-			return false; 
+			e.preventDefault();
 		});	
 
 		//function after succesful file upload (when server response)
