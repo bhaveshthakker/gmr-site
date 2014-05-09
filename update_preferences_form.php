@@ -92,14 +92,13 @@
 				target:   '#updatePreferencesMessage',   // target element(s) to be updated with server response 
 				beforeSubmit:  beforeSubmit,  // pre-submit callback 
 				success:       afterSuccess,  // post-submit callback 
-				uploadProgress: OnProgress, //upload progress callback 
-				resetForm: true        // reset the form after successful submit 
+				uploadProgress: OnProgress //upload progress callback 
 			}; 
 			$("#updatePreferences").submit(function() { 
 				populateCompanyName();
 				$(this).ajaxSubmit(options);  			
 				// always return false to prevent standard browser submit and page navigation 
-				return false; 
+				return false;
 			});	
 
 			function populateCompanyName() {

@@ -48,12 +48,5 @@
           <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
           <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
           <script type="text/javascript" src="js/alert-messages.js"></script>
-          <script type="text/javascript">
-            function closePopup() {
-              console.log('inside close');
-              self.opener.location.href='http://test.getmereferred.com/gmr-site/index.php';
-              self.close();
-          }
-      </script>
       <!-- prettyPhoto Initialization -->
   </head>
