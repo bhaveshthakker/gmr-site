@@ -1,0 +1,2 @@
+use gmr;
+ALTER TABLE `applicants` ADD `primary_skill` VARCHAR(50) NULL DEFAULT NULL AFTER `location`, ADD `secondary_skills` VARCHAR(500) NULL DEFAULT NULL AFTER `primary_skill`, ADD `current_company` VARCHAR(200) NULL DEFAULT NULL AFTER `secondary_skills`, ADD `current_ctc` INT(10) NULL DEFAULT NULL AFTER `current_company`, ADD `experience` VARCHAR(50) NULL DEFAULT NULL AFTER `current_ctc`;

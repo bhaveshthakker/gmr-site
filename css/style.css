@@ -736,14 +736,14 @@ input[type=text], input[type=password] {
 		-webkit-transition: background 0.25 ease-in;
 	}
 	#theme-form input[type=text] {
-		height: 3.25em;
+		height: 2.5em;
 		width: 100%
 	}
 	#theme-form input[type=submit] {
 		font-family: 'Patua One', cursive;
 		color: #fff;
 		width: 185px;
-		height: 60px;
+		height: 2.5em;
 		text-shadow: none;
 		font-size: 1.3125em; /* 21px */
 		padding:0.5em;

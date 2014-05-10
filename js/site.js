@@ -5,8 +5,12 @@ jQuery(document).ready(function($) {
 		    
 		    // Localscrolling 
 		    
-    		$('#nav-main, .brand').localScroll();
-     		$('#news, .container').localScroll();
+    		$('#nav-main, .brand').localScroll({
+    			hash: false
+    		});
+     		$('#news, .container').localScroll({
+     			hash: false
+     		});
 
      	});
 

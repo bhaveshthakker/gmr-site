@@ -18,7 +18,7 @@
             <div style="color: white;margin: 1em;font-weight:bold;">Or signin using your email</div>
 
             <div style="color: red;margin: 1em;"><?php 
-            if(isset($_GET['login-failed']) && $_GET['login-failed']=='1') {
+              if(isset($_GET['login-failed']) && $_GET['login-failed']=='1') {
                 echo 'Username or password is incorrect!';
               } ?>
             </div>
@@ -52,12 +52,13 @@
             <p>We need your email address</p>
             <a class="modal_close" href="#"></a>
           </div>
-          <form method="post" action='forget_password_submit.php'>
+          <form method="post" id="forget_password_form" action='forget_password_submit.php'>
             <div class="txt-fld">
-              <input id="forgot_password_email" name="forgot_password_email" placeholder="Your Email address" type="text">
+              <input id="forgot_password_email" name="forgot_password_email" 
+              placeholder="Your Email address" type="text" data-validation="required">
             </div>
             <div>
-              <input type="submit" class="cform-submit"></input>
+              <input type="submit" id="forget_button" class="cform-submit" value="Reset Password"></input>
             </div>
           </form>
         </div>
@@ -66,10 +67,17 @@
       <script type="text/javascript">
         $(function () {
           $("#forgot-password").leanModal({ top : 200, closeButton: ".modal_close" });  
+          $.validate({
+            form : '#loginForm, #forget_password_form',
+            modules : 'security',
+            scrollToTopOnError : false ,// Set this property to true if you have a long form
+            onSuccess : function() {
+              $('#forget_button').attr('disabled', 'disabled').val('Please wait...'); 
+            }
+          });
+
+          /*$('#forget_password_form').submit(function() {
+            $('#forget_button').attr('disabled', 'disabled').val('Please wait...');
+          });*/
         });
-        $.validate({
-          form : '#loginForm',
-          modules : 'security',
-        scrollToTopOnError : false // Set this property to true if you have a long form
-      });
       </script>

@@ -80,15 +80,15 @@ function beforeSubmit(){
 			case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
 			break;
 			default:
-			$("#updateResumeMessage").html("<b>"+ftype+"</b> Unsupported file type!");
+			$("#updateResumeMessage").html("<b>"+ftype+"</b> Unsupported file type!").show();
 			return false
 		}
 		
 		//Allowed file size is less than 5 MB (1048576)
 		if(fsize>5242880) 
 		{
-			$("#updateResumeMessage").html("<b>"+bytesToSize(fsize) +"</b> Too big file! </b> It should be less than 1 MB.");
-			return false
+			$("#updateResumeMessage").html("<b>"+bytesToSize(fsize) +"</b> Too big file! </b> It should be less than 1 MB.").show();
+			return false;
 		}
 		$("#updateResumeMessage").hide();  
 	}

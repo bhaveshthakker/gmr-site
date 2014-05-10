@@ -31,7 +31,7 @@
 	$( function() {
 		var request = $.ajax({
 			url: "company_map.php",
-			type: "GET",			
+			type: "GET",
 			dataType: "html"
 		});
 		request.done(function(msg) {
@@ -51,6 +51,7 @@
 						'">' + companies[counter].name + '</option>');
 				}
 			}
+
 			$("#chosen-plugin-companies").chosen();
 		});
 	});
@@ -64,13 +65,20 @@
 			dataType: "html"
 		});
 		request.done(function(msg) {
-			var companies = JSON.parse(msg);
-			for(var counter in companies)
+			var cities = JSON.parse(msg);
+			var current_city = <?php echo "'".$_SESSION['city']."'"; ?>;
+			//console.log('current_city: '+ current_city);
+			for(var counter in cities)
 			{
-				$("#chosen-plugin-cities").append('<option value="' + companies[counter].id + 
-					'">' + companies[counter].name + '</option>');
-				$("#city").append('<option value="' + companies[counter].id + 
-					'">' + companies[counter].name + '</option>');
+				$("#chosen-plugin-cities").append('<option value="' + cities[counter].id + 
+					'">' + cities[counter].name + '</option>');
+				if(cities[counter].id==current_city) {
+					$("#city").append('<option selected="selected" value="' + cities[counter].id + 
+					'">' + cities[counter].name + '</option>');	
+				} else {
+					$("#city").append('<option value="' + cities[counter].id + 
+					'">' + cities[counter].name + '</option>');	
+				}
 			}
 			$("#chosen-plugin-cities").chosen({
 				no_results_text: "Oops, nothing found!",

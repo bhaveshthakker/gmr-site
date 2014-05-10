@@ -45,15 +45,14 @@ require_once('session_initialize.php');
       <div class="span10">
         <div class="tabbable">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab">Update my profile</a></li>
+            <li class="active"><a href="#updateprofile" data-toggle="tab">Update my profile</a></li>
             <li><a href="#tab2" data-toggle="tab">Search Jobs</a></li>
-            <li><a href="#tab3" data-toggle="tab">Feedback/Questions</a></li>
+            <li><a href="#contactus" data-toggle="tab">Feedback/Questions</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="tab1"><?php require_once 'updateprofile.php'; ?></div>
-            <div  class="tab-pane fade" id="tab2">Tab 2</div>
-            <div  class="tab-pane fade" id="tab3">Tab 3</div>
-            <div  class="tab-pane fade" id="tab4">Tab 4</div>
+          <div class="tab-pane active" id="updateprofile"><?php require_once('updateprofile.php'); ?></div>
+            <div class="tab-pane fade" id="tab2">Tab 2</div>
+            <div class="tab-pane fade" id="contactus"><?php include_once('contactus_form.php') ?></div>
           </div>
         </div>
       </div>

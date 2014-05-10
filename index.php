@@ -8,14 +8,13 @@ require_once('session_initialize.php');
   <?php 
   include_once('analyticstracking.php');
   require_once('header.php');
-
-
-  if(isset($_SESSION['username']) && $_SESSION['username']!='') { //user session is active
-    require_once 'landing.php';   
+  if(isset($_SESSION['username']) && $_SESSION['username']!=null) { //user session is active
+    require_once('landing.php');   
       //echo '<br>'.'session exist'.$_SESSION['username'];
   } else { //user session is not active --go anonymous
     require_once('informatica.php');
     require_once('loginForm.php');
+    require_once('contact.php');
       //echo '<br>'.'session not exist'.$_SESSION['username'];
   }
   ?>
@@ -30,7 +29,6 @@ require_once('session_initialize.php');
   <!--******************** Team Section ********************-->
   <?php //require_once('team.php'); ?>
   <!--******************** Contact Section ********************-->
-  <?php require_once('contact.php'); ?>
   <?php require_once('footer.php'); ?>
 </body>
 </html>

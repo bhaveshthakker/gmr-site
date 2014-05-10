@@ -42,7 +42,9 @@ if(isset($db_error)) {
 //echo $result;
 
 if($result) { //User created go and create session variable
-	$isMailSent = phpMailerSend($activation_key, $_POST['a_email'], $fname, $lname);
+	$subject  = "Thanks for registering with us!";
+	$url = '/activate_user.php?key=';
+	$isMailSent = phpMailerSend($url, $activation_key, $_POST['a_email'], $fname, 'mailTemplate.html', $subject);
 	if($isMailSent) {
 		$_SESSION['alert-message'] = "ACTIVATION_SENT-15";
 		header('location:index.php');

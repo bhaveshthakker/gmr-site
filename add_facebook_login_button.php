@@ -3,6 +3,7 @@ require_once('session_initialize.php');
 require_once('fbmain.php');
 require_once('database.php');
 require_once('php_mailer.php');
+require_once('set_session_data.php');
 
 $config['baseurl']='http://'.$_SERVER['HTTP_HOST'];
 ?>
@@ -33,24 +34,15 @@ if (!is_null($fbme) && isset($_REQUEST['loginsucc'])){
     //now set the cookie so that next time user don't need to click login again
     //setCookie('fbs_' . "{$fbconfig['appid']}", $strCookie);
     //print_r($fbme);
-  $query = "select username,resume_path, company from applicants where username='$email'";
+  $query = "select * from applicants where username='$email'";
 
   $result = mysql_query($query) or  die("Error on checking FB user"+mysql_error());
     //user already registerred using facebook 
     // Go and create session
   if(mysql_num_rows($result)==1) { 
-    $row = mysql_fetch_row($result);
-    $_SESSION['username'] = $email;
-    $_SESSION['firstname'] = $fname;
-    $_SESSION['resume_path'] = $row[1];
-    //print_r($row);
-    if(isset($row[2]))
-      $_SESSION['company'] = $row[2];
-    else
-      $_SESSION['company'] = "";
+    $row = mysql_fetch_assoc($result);
+    setSessionData($row);
   }
-    //User not registered 
-    //Go and insert into applicant tables
   else {
     $query = "insert into applicants (firstname,lastname,username,ip_address, status_type) values(".
       "'$fname','$lname','$email','$ip', 'FACEBOOK_REGISTRATION')";

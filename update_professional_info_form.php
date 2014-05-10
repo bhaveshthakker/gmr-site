@@ -1,7 +1,7 @@
-<form method="post" id="updatePersonalInfo" action='update_personal_info.php' >
+<form method="post" id="updateProfessionalInfo" action='update_professional_info.php' >
 	<div class="row">
 		<div class="span8">
-			<div id="updatePersonalInfoMessage" class="alert alert-success" style="opacity: 0;height:20px;"></div>
+			<div id="updateProfessionalInfoMessage" class="alert alert-success" style="opacity: 0;height:20px;"></div>
 		</div>
 		<div class="span4">
 			<input type="text"  id="fullname" name="fullname" 
@@ -45,7 +45,7 @@
 <div class="row top-buffer">
 	<div class="span8">
 		
-		<input type="submit" id="personalInfoSubmit" value="Update" class="cform-submit">
+		<input type="submit" id="professionalInfoSubmit" value="Update" class="cform-submit">
 	</div>
 </div>
 </form>
@@ -59,20 +59,20 @@
 			autoclose: true
 		});
 		$.validate({
-			form : '#updatePersonalInfo',
+			form : '#updateProfessionalInfo',
 			modules : 'file,security',
 			validateOnBlur : true,
       scrollToTopOnError : false // Set this property to true if you have a long form
   });
 
 		var options = { 
-			target:   '#updatePersonalInfoMessage',   // target element(s) to be updated with server response 
+			target:   '#updateProfessionalInfoMessage',   // target element(s) to be updated with server response 
 			
 			success:       afterSuccess,  // post-submit callback 
 			beforeSubmit:  OnProgress //upload progress callback 
 		}; 
 		
-		$("#updatePersonalInfo").submit(function(e) { 
+		$("#updateProfessionalInfo").submit(function(e) { 
 			$(this).ajaxSubmit(options);  			
 			e.preventDefault();
 		});	
@@ -80,22 +80,22 @@
 		//function after succesful file upload (when server response)
 		function afterSuccess(response)
 		{
-			$('#updatePersonalInfoMessage').html("Well done! Your information is updated.")
+			$('#updateProfessionalInfoMessage').html("Well done! Your information is updated.")
 			.visibilityToggle();
 			setTimeout(function(){
-				$('#updatePersonalInfoMessage').visibilityToggle();
+				$('#updateProfessionalInfoMessage').visibilityToggle();
 			}, 5000);
-			//$('#updatePersonalInfoMessage').html(response).show();
-			$('#personalInfoSubmit').removeAttr('disabled');
+			//$('#updateProfessionalInfoMessage').html(response).show();
+			$('#professionalInfoSubmit').removeAttr('disabled');
 		}
 
 	//progress bar function
 	function OnProgress(event, position, total, percentComplete)
 	{
 	    //Progress bar
-	    $('#updatePersonalInfoMessage').html("Please wait while we update your information").show();
+	    $('#updateProfessionalInfoMessage').html("Please wait while we update your information").show();
 	    console.log()
-	    $('#personalInfoSubmit').attr('disabled' , 'disabled');
+	    $('#professionalInfoSubmit').attr('disabled' , 'disabled');
 	}
 	jQuery.fn.visible = function() {
 		//return this.css('visibility', 'visible');
