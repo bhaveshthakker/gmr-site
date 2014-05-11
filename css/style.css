@@ -1314,6 +1314,18 @@ footer p {
 	color: inherit;
 	font-family: 'Patua One', cursive;
 }
+.tab-content {
+	overflow: initial;
+}
+.nav-pills {
+	
+}
+.nav-pills > .active > a {
+
+}
+.nav-pills > li > a {
+
+}
 .order-bullet {
 	font-weight: bold;
 	margin-right: 0.7em;
@@ -1341,6 +1353,7 @@ footer p {
 .chosen-container-single .chosen-drop {
 	font-size: 1.25em !important;
 	border: 0 !important;
+	text-align: center !important;
 }
 .chosen-container-single .chosen-single span {
 	margin-top: 5px;
@@ -1351,6 +1364,14 @@ footer p {
 	width: 15px !important;
 }
 
+.chosen-shift-placeholder {
+	width: 100%!important;
+	text-align: center;
+}
+.chosen-shift-placeholder-input {
+	width: auto !important;
+	text-align: center !important;
+}
 .chosen-container-multi .chosen-choices {
 	min-height: 2.1em;
 	background: none #fff !important;
@@ -1361,4 +1382,17 @@ footer p {
 	margin-bottom: 1% !important;
 	box-shadow: none !important;
 	border-radius: 4px;
+}
+.chosen-container-multi .chosen-choices .search-field {
+	margin: auto;
+	text-align: center;
+}
+.chosen-container-multi .chosen-results {
+	text-align: center !important;
+}
+.update-form section {
+	/*padding-top: 4.75em;*/
+}
+#update-sections {
+	/*position: static;*/
 }

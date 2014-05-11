@@ -35,6 +35,7 @@
           <link rel="stylesheet" type="text/css" href="css/datepicker.css"></link >
 
           <script src="js/jquery.js"></script>
+          <script type="text/javascript" src="js/bootstrap.js"></script>
           <!--<script src="js/jquery-ui-1.10.2.js"></script>-->
           <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
           <script src="js/chosen.jquery.js" type="text/javascript"></script>

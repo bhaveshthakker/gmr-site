@@ -7,25 +7,25 @@
 			<input type="text"  id="fullname" name="fullname" 
 			placeholder="Full Name" class="cform-text" 
 			size="40" title="Your full name" 
-			value="<?=$_SESSION['firstname']?>" />
+			value="<?php echo $_SESSION['firstname']?>" />
 		</div>
 		<div class="span4">
 			<input type="text"  id="dob" name="dob" 
 			placeholder="Your Birthdate" class="cform-text" 
-			title="Your date of birth" value="<?=$_SESSION['dob']?>" />
+			title="Your date of birth" value="<?php echo $_SESSION['dob']?>" />
 		</div>
 	</div>
 	<div class="row top-buffer">
 		<div class="span4">
 			<input type="text"  id="email" name="email" disabled="disable"
 			placeholder="Your email" class="cform-text" 
-			size="40" title="Your email address" value="<?=$_SESSION['username']?>" />
+			size="40" title="Your email address" value="<?php echo $_SESSION['username']?>" />
 		</div>
 		<div class="span4">
 			<input type="text"  id="contact_no" name="contact_no" 
 			placeholder="Mobile Number" class="cform-text" 
 			maxlength="10" title="Your mobile number" data-validation="custom" data-validation-regexp="^[789]\d{9}$|^$" 
-			data-validation-error-msg="Please enter valid mobile number" value="<?=$_SESSION['contact_no']?>" />
+			data-validation-error-msg="Please enter valid mobile number" value="<?php echo $_SESSION['contact_no']?>" />
 		</div>
 	</div>
 	<div class="row top-buffer">
@@ -34,12 +34,18 @@
 			data-placeholder="Current City" title="Your current city">
 			<option></option>
 		</select>
+		<script type="text/javascript">
+			$('#city').chosen({
+				no_results_text: "Oops, nothing found!",
+				width: "100%"
+			});
+		</script>
 	</div>
 	<div class="span4">
 		<input type="text"  id="pincode" name="pincode" 
 		placeholder="Pincode" class="cform-text" 
 		size="10" title="Your current location pincode" data-validation="custom" data-validation-regexp="^\d{6}$|^$"
-		data-validation-error-msg="Please enter valid pincode" value="<?=$_SESSION['pincode']?>"/>
+		data-validation-error-msg="Please enter valid pincode" value="<?php echo $_SESSION['pincode']?>"/>
 	</div>
 </div>
 <div class="row top-buffer">

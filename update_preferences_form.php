@@ -37,6 +37,7 @@
 		request.done(function(msg) {
 			var companies = JSON.parse(msg);
 			var preferred_companies = <?php echo "'".$_SESSION['company']."'"; ?>;
+			var current_company = <?php echo "'".$_SESSION['current_company']."'"; ?>;
 			var company_ids = preferred_companies.split(";")
 			for(var counter in company_ids) {
 				company_ids[counter] = company_ids[counter].split(":")[1];
@@ -50,9 +51,18 @@
 					$("#chosen-plugin-companies").append('<option value="' + companies[counter].id + 
 						'">' + companies[counter].name + '</option>');
 				}
+				if((current_company === companies[counter].id)) {
+					$("#current_company").append('<option selected="selected" value="' + companies[counter].id + 
+						'">' + companies[counter].name + '</option>');
+				} else {
+					$("#current_company").append('<option value="' + companies[counter].id + 
+						'">' + companies[counter].name + '</option>');
+				}
+
 			}
 
 			$("#chosen-plugin-companies").chosen();
+			$("#current_company").trigger("chosen:updated");
 		});
 	});
 </script>
@@ -84,10 +94,7 @@
 				no_results_text: "Oops, nothing found!",
 				width: "100%"
 			});
-			$('#city').chosen({
-				no_results_text: "Oops, nothing found!",
-				width: "100%"
-			});
+			$('#city').trigger("chosen:updated");
 		});
 	});
 </script>
@@ -105,6 +112,7 @@
 			$("#updatePreferences").submit(function() { 
 				populateCompanyName();
 				$(this).ajaxSubmit(options);  			
+				//console.log($("#chosen-plugin-companies").val());
 				// always return false to prevent standard browser submit and page navigation 
 				return false;
 			});	
