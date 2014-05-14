@@ -49,5 +49,6 @@
           <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
           <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
           <script type="text/javascript" src="js/alert-messages.js"></script>
+          <script type="text/javascript" src="js/city_array.js"></script>
       <!-- prettyPhoto Initialization -->
   </head>

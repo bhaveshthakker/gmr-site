@@ -14,9 +14,9 @@
 		<thead>
 			<tr>
 				<th>User Name</th>
-				<th>First Name</th>
-				<th>Last Name</th>
+				<th>Full Name</th>
 				<th>Current Company</th>
+				<th>Notice Period</th>
 				<th>Experience</th>
 				<th>Primary Skill</th>
 				<th>Current CTC</th>
@@ -32,8 +32,8 @@
 		  echo "<tr id='".$row['username']."'>";
 		  echo "<td>" . $row['username'] . "</td>";
 		  echo "<td>" . $row['firstname'] . "</td>";
-		  echo "<td>" . $row['lastname'] . "</td>";
 		  echo "<td>" . $row['current_company'] . "</td>";
+		  echo "<td>" . $row['notice_period'] . "</td>";
 		  echo "<td>" . $row['experience'] . "</td>";
 		  echo "<td>" . $row['primary_skill'] . "</td>";
 		  echo "<td>" . $row['current_ctc'] . "</td>";

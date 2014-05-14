@@ -69,25 +69,27 @@
 <!-- Populate all cities -->
 <script type="text/javascript">
 	$(function() { 
-		var request = $.ajax({
+		/*var request = $.ajax({
 			url: "cities_map.php",
 			type: "GET",			
 			dataType: "html"
-		});
-		request.done(function(msg) {
-			var cities = JSON.parse(msg);
+		});*/
+		//request.done(function(msg) {
+			//console.log(city_array);
+			//var cities = JSON.parse(msg);
+			var cities = city_array;
 			var current_city = <?php echo "'".$_SESSION['city']."'"; ?>;
 			//console.log('current_city: '+ current_city);
 			for(var counter in cities)
 			{
-				$("#chosen-plugin-cities").append('<option value="' + cities[counter].id + 
-					'">' + cities[counter].name + '</option>');
-				if(cities[counter].id==current_city) {
-					$("#city").append('<option selected="selected" value="' + cities[counter].id + 
-					'">' + cities[counter].name + '</option>');	
+				$("#chosen-plugin-cities").append('<option value="' + cities[counter] + 
+					'">' + cities[counter] + '</option>');
+				if(cities[counter]==current_city) {
+					$("#city").append('<option selected="selected" value="' + cities[counter] + 
+					'">' + cities[counter] + '</option>');	
 				} else {
-					$("#city").append('<option value="' + cities[counter].id + 
-					'">' + cities[counter].name + '</option>');	
+					$("#city").append('<option value="' + cities[counter] + 
+					'">' + cities[counter] + '</option>');	
 				}
 			}
 			$("#chosen-plugin-cities").chosen({
@@ -95,7 +97,7 @@
 				width: "100%"
 			});
 			$('#city').trigger("chosen:updated");
-		});
+		//});
 	});
 </script>
 
