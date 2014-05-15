@@ -676,7 +676,7 @@ input[type=text], input[type=password] {
 		margin-top: 0em;
 	}
 	#contact, #team {
-		padding-top: 4.75em;
+		/*padding-top: 4.75em;*/
 	}
 	#team {
 		padding-bottom: 0;
@@ -719,13 +719,13 @@ input[type=text], input[type=password] {
 		z-index: 999;
 	}
 	#theme-form input[type=text], .cform-form textarea {
-		background: rgba(227, 231, 228, 1);
+		/*background: rgba(227, 231, 228, 1);*/
 		font-family: 'Open Sans', sans serif;
-		border: 0;
+		/*border: 0;*/
 		text-align: left;
 		vertical-align: middle;
 	}
-	#theme-form input[type=text]:focus, .cform-form textarea:focus {
+	/*#theme-form input[type=text]:focus, .cform-form textarea:focus {
 		background: rgba(101, 106, 100, 1);
 		color: #eff1ef;
 		box-shadow: none;
@@ -738,7 +738,7 @@ input[type=text], input[type=password] {
 	#theme-form input[type=text] {
 		height: 2.5em;
 		width: 100%
-	}
+	}*/
 	#theme-form input[type=submit] {
 		font-family: 'Patua One', cursive;
 		color: #fff;

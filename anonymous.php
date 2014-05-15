@@ -12,7 +12,7 @@ require_once('add_facebook_login_button.php');
     <div id="TnC"> Or signup using your email</div>
     <form method="post" action='signupApplicant.php' >
       <div><input type="text"  id="a_firstname" name="a_firstname" 
-      placeholder="Full Name" class="cform-text input-half" 
+      placeholder="Full name" class="cform-text input-half" 
       size="40" title="Your full name" data-validation="required" 
       data-validation-error-msg="Please enter your full name" /></div>
       <div><input type="text"  id="a_email" name ="a_email"

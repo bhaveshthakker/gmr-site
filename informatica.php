@@ -4,9 +4,9 @@
    <div class="row">
      <div class="span7" style="padding-top: 0em;padding-bottom: 2em;">
       <h1><span>Get Me Referred!</span></h1>
-      <p>
+      <h2 style="color:#312A1E">
         A place where job seekers can meet their actual referrers. 
-      </p>
+      </h2>
     </div>  
     <div class="span5"> 
       <?php include('anonymous.php'); ?>

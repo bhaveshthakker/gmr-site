@@ -47,12 +47,20 @@ require_once('session_initialize.php');
           <ul class="nav nav-tabs">
             <li class="active"><a href="#updateprofile" data-toggle="tab">Update my profile</a></li>
             <li><a href="#tab2" data-toggle="tab">Search Jobs</a></li>
-            <li><a href="#contactus" data-toggle="tab">Feedback/Questions</a></li>
+            <li><a href="#contact" data-toggle="tab">Feedback/Questions</a></li>
           </ul>
+          <script type="text/javascript">
+            $(function() {
+              $('.nav-tabs a:first').tab('show');
+              $('#contact-menu-item').click(function() {
+                $('.nav-tabs a:last').tab('show');
+              });
+            });
+          </script>
           <div class="tab-content">
-          <div class="tab-pane active" id="updateprofile"><?php require_once('updateprofile.php'); ?></div>
+            <div class="tab-pane active" id="updateprofile"><?php require_once('updateprofile.php'); ?></div>
             <div class="tab-pane fade" id="tab2">Tab 2</div>
-            <div class="tab-pane fade" id="contactus"><?php include_once('contactus_form.php') ?></div>
+            <div class="tab-pane fade" id="contact"><?php include_once('contactus_form.php') ?></div>
           </div>
         </div>
       </div>

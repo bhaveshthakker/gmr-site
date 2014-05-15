@@ -3,7 +3,6 @@ require_once('session_initialize.php');
 require_once('database.php');
 
 $primary_skill = $_SESSION['primary_skill'] = $_POST["primary_skill"];
-echo $_POST["secondary_skills_hidden"];
 $secondary_skills = $_SESSION["secondary_skills"] = $_POST["secondary_skills_hidden"];
 $experience = $_SESSION["experience"] = $_POST["experience"];
 $current_company = $_SESSION['current_company'] = $_POST["current_company"];

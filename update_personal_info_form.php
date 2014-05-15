@@ -68,20 +68,18 @@
 			form : '#updatePersonalInfo',
 			modules : 'file,security',
 			validateOnBlur : true,
-      scrollToTopOnError : false // Set this property to true if you have a long form
-  });
+      		scrollToTopOnError : false,
+      		onSuccess: function() {
+      			$(this).ajaxSubmit(options);
+      			return false;
+      		}
+  		});
 
 		var options = { 
-			target:   '#updatePersonalInfoMessage',   // target element(s) to be updated with server response 
-			
+			target:   '#updatePersonalInfoMessage',   // target element(s) to be updated with server response 	
 			success:       afterSuccess,  // post-submit callback 
 			beforeSubmit:  OnProgress //upload progress callback 
-		}; 
-		
-		$("#updatePersonalInfo").submit(function(e) { 
-			$(this).ajaxSubmit(options);  			
-			e.preventDefault();
-		});	
+		}; 	
 
 		//function after succesful file upload (when server response)
 		function afterSuccess(response)
@@ -100,23 +98,7 @@
 	{
 	    //Progress bar
 	    $('#updatePersonalInfoMessage').html("Please wait while we update your information").show();
-	    console.log()
 	    $('#personalInfoSubmit').attr('disabled' , 'disabled');
 	}
-	jQuery.fn.visible = function() {
-		//return this.css('visibility', 'visible');
-		return this.animate({'opacity': '1'},5000);
-	};
-
-	jQuery.fn.invisible = function() {
-		return this.animate({'opacity': '0'},5000);
-	};
-
-	jQuery.fn.visibilityToggle = function() {
-		return this.css('opacity', function(i, visibility) {
-			return (visibility == 1) ? 0 : 1;
-		});
-	};
-
 }); 
 </script>

@@ -32,12 +32,12 @@ require_once('session_initialize.php');
            <!-- <li><a title="news" href="#news">How it Works</a></li>
            <li><a title="team" href="#team">Team</a></li>
            <li><a title="services" href="#news">Blog</a></li> -->
-           <li><a title="contact" href="#contact">Contact</a></li>
+           <li><a title="contact" href="#contact" id="contact-menu-item">Contact</a></li>
            <?php
            if(isset($_SESSION['username'])) {
             echo '<li><a title="Sign out" href="signout.php" >Sign Out</a></li>'; 
           } else {
-            echo '<li><a title="Sign In" href="#signin" >Sign In</a></li>';
+            echo '<li><a title="Sign In" href="#signin">Sign In</a></li>';
           }
           ?>
         </ul>
