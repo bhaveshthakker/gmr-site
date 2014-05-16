@@ -39,12 +39,12 @@
 			var preferred_companies = <?php echo "'".$_SESSION['company']."'"; ?>;
 			var current_company = <?php echo "'".$_SESSION['current_company']."'"; ?>;
 			var company_ids = preferred_companies.split(";")
-			for(var counter in company_ids) {
+			/*for(var counter in company_ids) {
 				company_ids[counter] = company_ids[counter].split(":")[1];
-			}
+			}*/
 			for(var counter in companies)
 			{
-				if(company_ids.indexOf(companies[counter].id) !== -1) {
+				if(company_ids.indexOf(companies[counter].name) !== -1) {
 					$("#chosen-plugin-companies").append('<option selected="selected" value="' + companies[counter].id + 
 						'">' + companies[counter].name + '</option>');
 				} else {
@@ -69,21 +69,14 @@
 <!-- Populate all cities -->
 <script type="text/javascript">
 	$(function() { 
-		/*var request = $.ajax({
-			url: "cities_map.php",
-			type: "GET",			
-			dataType: "html"
-		});*/
-		//request.done(function(msg) {
-			//console.log(city_array);
-			//var cities = JSON.parse(msg);
 			var cities = city_array;
-			var current_city = <?php echo "'".$_SESSION['city']."'"; ?>;
+			var current_city = <?php echo "'".$_SESSION['current_city']."'"; ?>;
 			//console.log('current_city: '+ current_city);
 			for(var counter in cities)
 			{
 				$("#chosen-plugin-cities").append('<option value="' + cities[counter] + 
 					'">' + cities[counter] + '</option>');
+
 				if(cities[counter]==current_city) {
 					$("#city").append('<option selected="selected" value="' + cities[counter] + 
 					'">' + cities[counter] + '</option>');	
@@ -97,7 +90,6 @@
 				width: "100%"
 			});
 			$('#city').trigger("chosen:updated");
-		//});
 	});
 </script>
 
@@ -124,7 +116,7 @@
 				var allSelectedCompaniesTexts = "";
 				for(var i = 0; i< allSelectedCompanies.length; i++)
 				{
-					allSelectedCompaniesTexts += allSelectedCompanies[i].text + ":" + allSelectedCompanies[i].value + ";"
+					allSelectedCompaniesTexts += allSelectedCompanies[i].text+ ";";// + ":" + allSelectedCompanies[i].value + ";"
 				}
 				$("#allSelectedCompanies").val(allSelectedCompaniesTexts);
 			}

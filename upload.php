@@ -1,4 +1,5 @@
 <?php
+header('Content-type:application/json');
 require_once('session_initialize.php');
 require_once('database.php');
 
@@ -13,16 +14,18 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
     Open "php.ini" file, and search for "memory_limit" or "upload_max_filesize" limit 
     and set them adequately, also check "post_max_size".
     */
-    
+    $response=Array();
     //check if this is an ajax request
     if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
-        die('');
+        $response['error'] = '1';
+        $response['error_desc'] = 'Not an AJAX request';
     }
     
     
     //Is file size is less than allowed size.
-    if ($_FILES["resume"]["size"] > 5242880) {
-        die("File size is too big!");
+    if ($_FILES["resume"]["size"] > 2097152) {
+        $response['error'] = '1';
+        $response['error_desc'] = 'File size too long';
     }
     
     //allowed file type Server side check
@@ -34,7 +37,8 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
         case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
         break;
         default:
-                die( 'Unsupported File!'); //output error
+            $response['error'] = '1';
+            $response['error_desc'] = 'Unsupported File!';
             }
             
             $File_Name          = strtolower($_FILES['resume']['name']);
@@ -51,17 +55,22 @@ if(isset($_FILES["resume"]) && $_FILES["resume"]["error"]== UPLOAD_ERR_OK)
         //echo $query;
         $result = mysql_query($query);
         if($result) {
-            die( 'Success! File Uploaded.');
+            $response['error'] = '0';
+            $response['resume_path'] = $_SESSION['resume_path'];
         } else {
-            die('Database update failed'.mysql_error());
+            $response['error'] = '1';
+            $response['error_desc'] = 'Database update failed';
         }
     }else{
-        die( 'error uploading File!');
+         $response['error'] = '1';
+        $response['error_desc'] = 'Error moving file';
     }
     
 }
 else
 {
-    die( 'Something wrong with upload! Is "upload_max_filesize" set correctly?');
+    $response['error'] = '1';
+    $response['error_desc'] = 'Something wrong with upload! Is "upload_max_filesize" set correctly?';
 }
+echo json_encode($response);
 ?>

@@ -14,10 +14,11 @@
         <div class="row">
           <div class="span8"> 
             <span class="your-email">
-              <input type="text" name="your-email" placeholder="Your email please" 
+              <input type="text" id="your-email" name="your-email" placeholder="Your email please" 
               class="cform-text" size="40" title="your email"
               data-validation="email" 
               data-validation-error-msg="Please enter your full name"
+              value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; } ?>" 
               >
             </span> 
           </div>
@@ -25,7 +26,7 @@
         <div class="row top-buffer">
           <div class="span8"> 
             <span class="message">
-              <textarea name="message" placeholder="Please mention your feedback or questions here" class="cform-textarea" cols="40" rows="5" title="drop us a line."></textarea>
+            <textarea id="message" name="message" placeholder="Please mention your feedback or questions here" class="cform-textarea" cols="40" rows="5" title="drop us a line."></textarea>
             </span>
           </div>
         </div>
@@ -49,7 +50,7 @@
     validateOnBlur : true,
     scrollToTopOnError : false,
     onSuccess : function() {
-      $(this).ajaxSubmit(options);
+      $('#contactus').ajaxSubmit(options);
       return false; // Will stop the submission of the form
     },
   });
@@ -65,8 +66,8 @@
         $('#contactusMessage')
         .html("Thanks! We will get back to you within 24 hours.")
         .visibilityToggle();      
-      /*setTimeout(function(){
-        $('#contactusMessage').visibilityToggle();
-      }, 8000);*/
-}
-</script>
+        setTimeout(function(){
+          $('#contactusMessage').visibilityToggle();
+        }, 8000);
+      }
+    </script>

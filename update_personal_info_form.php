@@ -43,8 +43,8 @@
 	</div>
 	<div class="span4">
 		<input type="text"  id="pincode" name="pincode" 
-		placeholder="Pincode" class="cform-text" 
-		size="10" title="Your current location pincode" data-validation="custom" data-validation-regexp="^\d{6}$|^$"
+		placeholder="Pincode" class="cform-text" maxlength="6"
+		title="Your current location pincode" data-validation="custom" data-validation-regexp="^\d{6}$|^$"
 		data-validation-error-msg="Please enter valid pincode" value="<?php echo $_SESSION['pincode']?>"/>
 	</div>
 </div>
@@ -66,11 +66,11 @@
 		});
 		$.validate({
 			form : '#updatePersonalInfo',
-			modules : 'file,security',
+			modules : 'security',
 			validateOnBlur : true,
       		scrollToTopOnError : false,
       		onSuccess: function() {
-      			$(this).ajaxSubmit(options);
+      			$('#updatePersonalInfo').ajaxSubmit(options);
       			return false;
       		}
   		});

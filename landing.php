@@ -38,7 +38,7 @@ require_once('session_initialize.php');
   <div class="container">
 
     <!--<div class="align"><i class="icon-cog-circled"></i></div> -->
-    <h1><span>Welcome,</span> <?=$_SESSION['firstname'].'!'?></h1>
+    <h1><span>Welcome,</span> <?php echo $_SESSION['firstname'].'!'?></h1>
     <!-- Four columns -->
     <div class="row" id="menu">
       <div class="span1"></div>
@@ -46,7 +46,7 @@ require_once('session_initialize.php');
         <div class="tabbable">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#updateprofile" data-toggle="tab">Update my profile</a></li>
-            <li><a href="#tab2" data-toggle="tab">Search Jobs</a></li>
+           <!--  <li><a href="#tab2" data-toggle="tab">Search Jobs</a></li> -->
             <li><a href="#contact" data-toggle="tab">Feedback/Questions</a></li>
           </ul>
           <script type="text/javascript">

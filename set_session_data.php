@@ -4,7 +4,7 @@
 		$_SESSION['firstname'] = $row['firstname'];
 		$_SESSION["dob"] = date("d/m/Y",strtotime($row['dob']));
 		$_SESSION["contact_no"] =  $row['mobile'];
-		$_SESSION['city'] = $row['current_city'];
+		$_SESSION['current_city'] = $row['current_city'];
 		$_SESSION['pincode'] = $row['pincode'];
 		$_SESSION['resume_path'] = $row['resume_path'];
 		$_SESSION['company'] = $row['company'];
@@ -15,5 +15,5 @@
 		$_SESSION['notice_period'] = $row['notice_period'];
 		$_SESSION['current_ctc'] = $row['current_ctc'];
 		print_r($_SESSION);
-	}
+}
 ?>

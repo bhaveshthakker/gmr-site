@@ -7,56 +7,71 @@
 	<div class="row top-buffer">
 		<div class="span4">
 			<input type="file" name="resume" id="resume" />
-			<?php
-			if(isset($_SESSION['resume_path'])) {
-				?>
-				<a href="<?php echo "/".$_SESSION['resume_path']; ?>" target="_blank">View My Resume</a>
-				<?php } ?>
-			</div>
-			<div class="span4">
-				<div class="progress progress-striped active">
-					<div class="bar"></div>
-				</div >	
-			</div>
 		</div>
-		<div class="row top-buffer">
-			<div class="span8">
-				<input type="submit" value="Upload" class="cform-submit" />
-			</div>
-		</div>	
-	</form>
+		<div class="span4">
+			<div class="progress progress-striped">
+				<div class="bar"></div>
+			</div >	
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4">
+			<?php
+			if(isset($_SESSION['resume_path']) && $_SESSION['resume_path']!='') {
+				?>
+				<a id="resume_path_link" href="<?php echo "/".$_SESSION['resume_path']; ?>" target="_blank">View My Resume</a>
+				<?php }
+				else { ?>
+				<a id="resume_path_link" href="#" target="_blank" style="display:none;">View My Resume</a>	
+				<?php } ?>
+
+		</div>
+	</div>
+	<div class="row top-buffer">
+		<div class="span8">
+			<input type="submit" value="Upload" class="cform-submit" />
+		</div>
+	</div>	
+</form>
 	<script type="text/javascript">
 		$(document).ready(function() { 
 			$.validate({
 				form : '#updateProfile',
 				modules : 'file, security',
 				validateOnBlur : true,
-      			scrollToTopOnError : false // Set this property to true if you have a long form
-      		});
-			var options = { 
-			target:   '#updateResumeMessage',   // target element(s) to be updated with server response 
-			beforeSubmit:  beforeSubmit,  // pre-submit callback 
-			success:       afterSuccess,  // post-submit callback 
-			uploadProgress: OnProgress, //upload progress callback 
-			resetForm: true        // reset the form after successful submit 
-		}; 
-		
-		$("#updateProfile").submit(function() { 
-			$(this).ajaxSubmit(options);  			
-			// always return false to prevent standard browser submit and page navigation 
-			return false; 
-		});	
+				scrollToTopOnError : false,
+				onSuccess: function() {
+					var options = { 
+						target:   '#updateResumeMessage',   // target element(s) to be updated with server response 
+						beforeSubmit:  beforeSubmit,  // pre-submit callback 
+						success:       afterSuccess,  // post-submit callback 
+						uploadProgress: OnProgress, //upload progress callback 
+						resetForm: true        // reset the form after successful submit 
+					}; 
+					$("#updateProfile").ajaxSubmit(options); 
+					return false;
+				}
+			});
+
 
 //function after succesful file upload (when server response)
-function afterSuccess()
+function afterSuccess(response)
 {
+	console.log(response);
 	$('#submit-btn').show(); //hide submit button
+	/*$('.progress .bar').width('0%');*/
+	if(response.resume_path) {
+		$('#updateResumeMessage').html('Well Done! Resume successfully uploaded.');
+		$('#resume_path_link').attr('href', response.resume_path).show();
+	} else {
+		$('#updateResumeMessage').html('Oops! Something went wrong. Please try again or mail us at mail@getmereferred.com');
+	}
 	$('#updateResumeMessage').show().delay( 5000 ).fadeOut(); 
-	$('.progress .bar').width('0%');
 }
 
 //function to check file size before uploading.
 function beforeSubmit(){
+	$('.progress .bar').width('0%');
     //check whether browser fully supports all File API
     if (window.File && window.FileReader && window.FileList && window.Blob)
     {
@@ -85,9 +100,9 @@ function beforeSubmit(){
 		}
 		
 		//Allowed file size is less than 5 MB (1048576)
-		if(fsize>5242880) 
+		if(fsize>2097152) 
 		{
-			$("#updateResumeMessage").html("<b>"+bytesToSize(fsize) +"</b> Too big file! </b> It should be less than 1 MB.").show();
+			$("#updateResumeMessage").html("<b>"+bytesToSize(fsize) +"</b> Too big file! </b> It should be less than 2 MB.").show();
 			return false;
 		}
 		$("#updateResumeMessage").hide();  
