@@ -8,6 +8,7 @@
 		$_SESSION['pincode'] = $row['pincode'];
 		$_SESSION['resume_path'] = $row['resume_path'];
 		$_SESSION['company'] = $row['company'];
+		$_SESSION['location'] = $row['location'];
 		$_SESSION['primary_skill'] = $row['primary_skill'];
 		$_SESSION["secondary_skills"] = $row['secondary_skills'];
 		$_SESSION["experience"] = $row['experience'];

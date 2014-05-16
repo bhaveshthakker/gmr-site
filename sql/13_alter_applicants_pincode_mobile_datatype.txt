@@ -1,0 +1,3 @@
+use gmr;
+
+ALTER TABLE `applicants` CHANGE `mobile` `mobile` VARCHAR(10) NULL DEFAULT NULL, CHANGE `pincode` `pincode` VARCHAR(6) NULL DEFAULT NULL;
