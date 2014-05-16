@@ -9,7 +9,7 @@
 			<input type="file" name="resume" id="resume" />
 		</div>
 		<div class="span4">
-			<div class="progress progress-striped">
+			<div class="progress progress-striped" style="display:none;">
 				<div class="bar"></div>
 			</div >	
 		</div>
@@ -67,10 +67,14 @@ function afterSuccess(response)
 		$('#updateResumeMessage').html('Oops! Something went wrong. Please try again or mail us at mail@getmereferred.com');
 	}
 	$('#updateResumeMessage').show().delay( 5000 ).fadeOut(); 
+	//Progress bar
+    $('.progress').delay( 5000 ).hide();
 }
 
 //function to check file size before uploading.
 function beforeSubmit(){
+	//Progress bar
+    $('.progress').show();
 	$('.progress .bar').width('0%');
     //check whether browser fully supports all File API
     if (window.File && window.FileReader && window.FileList && window.Blob)
@@ -118,8 +122,6 @@ function beforeSubmit(){
 //progress bar function
 function OnProgress(event, position, total, percentComplete)
 {
-    //Progress bar
-    $('.progress').show();
     //$('#progressbar').width(percentComplete + '%') //update progressbar percent complete
     $('.progress .bar').width(percentComplete + '%'); //update status text
 }
