@@ -59,7 +59,7 @@
 		<select type="text"  id="experience" name="experience" 
 		data-placeholder="Experience" class="cform-text" >
 		<option></option>
-		<option value="Not Applicable">Not Applicable</option>
+		<option value="Fresher">Fresher</option>
 		<option value="0 - 1 year">0 - 1 year</option>
 		<option value="1 - 2 years">1 - 2 years</option>
 		<option value="2 - 3 years">2 - 3 years</option>

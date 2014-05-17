@@ -26,7 +26,7 @@ require_once('add_facebook_login_button.php');
       data-validation-error-msg="Please enter your password"
       /> </div>
       <div id="TnC">
-        By clicking Sign Up, you agree to our Terms and conditions.
+        By clicking Register Me, you agree to our Terms and conditions.
       </div>
       <input type="submit" value="Register Me" class="cform-submit">
     </form>

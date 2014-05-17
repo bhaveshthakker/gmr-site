@@ -18,7 +18,12 @@
               class="cform-text" size="40" title="your email"
               data-validation="email" 
               data-validation-error-msg="Please enter your full name"
-              value="<?php if(isset($_SESSION['username'])) { echo $_SESSION['username']; } ?>" 
+              <?php if(isset($_SESSION['username']) && $_SESSION['username']!='') { 
+                $username = $_SESSION['username'];
+                echo "value='$username'";
+                echo " disabled='disabled'" ;
+            } ?> 
+
               >
             </span> 
           </div>
