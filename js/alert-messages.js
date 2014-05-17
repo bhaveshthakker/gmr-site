@@ -4,7 +4,7 @@
 		if(key === 'WRONG_ACTIVATION_KEY') {
 			message = "Oops! Seems like the activation link is corrupted. Click <a href='#headerwrap' class='message-anchor'>here</a> to register again"
 		} else if(key === 'ACTIVATION_SENT') {
-			message = "Thanks! We have sent you an activation link. You are just 1 small step away from being our precious user. Please check your email"
+			message = "Thanks! We have sent you an activation link. Please check your email. As per your mailbox settings, it may go in spam."
 		} else if(key === "mysql_1062") {
 			message = "Oops! Seems like you have already registered an account with us. Click <a href='#signin' class='message-anchor'>here</a> if you have forgotten your password"			
 		} else if(key === 'PASSWORD_SUCCESSFULLY_CHANGED') {

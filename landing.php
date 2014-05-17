@@ -38,7 +38,7 @@ require_once('session_initialize.php');
   <div class="container">
 
     <!--<div class="align"><i class="icon-cog-circled"></i></div> -->
-    <h1><span>Welcome,</span> <?php echo $_SESSION['firstname'].'!'?></h1>
+    <h1><span>Welcome</span> <?php echo $_SESSION['fullname'].'!'?></h1>
     <!-- Four columns -->
     <div class="row" id="menu">
       <div class="span1"></div>

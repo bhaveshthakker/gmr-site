@@ -27,8 +27,7 @@ if (!is_null($fbme) && isset($_REQUEST['loginsucc'])){
     //only if valid session found and loginsucc is set
 
   $email = $fbme['email'];
-  $fname =  $fbme['first_name'];
-  $lname = $fbme['last_name'];
+  $fullname =  $fbme['first_name']." ".$fbme['last_name'];
   $ip = getRealIpAddr();
 
     //now set the cookie so that next time user don't need to click login again
@@ -44,8 +43,8 @@ if (!is_null($fbme) && isset($_REQUEST['loginsucc'])){
     setSessionData($row);
   }
   else {
-    $query = "insert into applicants (firstname,lastname,username,ip_address, status_type) values(".
-      "'$fname','$lname','$email','$ip', 'FACEBOOK_REGISTRATION')";
+    $query = "insert into applicants (firstname,username,ip_address, status_type) values(".
+      "'$fullname','$email','$ip', 'FACEBOOK_REGISTRATION')";
 echo $query;
 $result = mysql_query($query)  or $db_error = mysql_errno();
 echo mysql_error();
@@ -53,10 +52,14 @@ if(isset($db_error)) {
   $_SESSION['alert-message'] = "mysql_".$db_error."-15";
   unset($_SESSION['username']);
 } else {
-  $_SESSION['username'] = $email;
-  $_SESSION['firstname'] = $fname;
-          //$isMailSent = phpMailerSend('', $email, $fname, $lname);
+
+  //$_SESSION['username'] = $email;
+  //$_SESSION['firstname'] = $fullname;
   $_SESSION['alert-message'] = "FACEBOOK_REGISTRATION_SUCCESSFUL-10";
+  $row=Array();
+  $row['username'] = $email;
+  $row['firstname'] = $fullname;
+  setSessionData($row);
 }
 }
 ?>

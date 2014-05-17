@@ -25,7 +25,7 @@ function phpMailerSend($relative_url, $act_key, $email_addr, $firstname, $templa
 
 	$mail->From = 'mail@getmereferred.com';
 	$mail->FromName =  'Get Me Referred';
-	$mail->addAddress($email_addr, $firstname.' '.$lastname);
+	$mail->addAddress($email_addr, $firstname);
 	$mail->addBCC('malav@getmereferred.com');
 	$mail->addBCC('bhavesh@getmereferred.com');
 	$mail->addReplyTo("mail@getmereferred.com","GMR Admin");
@@ -39,10 +39,10 @@ function phpMailerSend($relative_url, $act_key, $email_addr, $firstname, $templa
 	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 
 		if(!$mail->Send()) {
-			echo "Mailer Error: " . $mail->ErrorInfo;
+			//echo "Mailer Error: " . $mail->ErrorInfo;
 			return false;
 		} else {
-			echo "Message sent!";
+			//echo "Message sent!";
 			return true;
 		}
 	}
@@ -86,10 +86,10 @@ function phpMailerSend($relative_url, $act_key, $email_addr, $firstname, $templa
 	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 
 		if(!$mail->Send()) {
-			echo "Mailer Error: " . $mail->ErrorInfo;
+			//echo "Mailer Error: " . $mail->ErrorInfo;
 			return false;
 		} else {
-			echo "Message sent!";
+			//echo "Message sent!";
 			return true;
 		}
 	}

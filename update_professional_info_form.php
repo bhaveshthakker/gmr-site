@@ -7,11 +7,21 @@
 			<select type="text"  id="primary_skill" name="primary_skill" 
 			data-placeholder="Primary Skill" class="cform-text">
 			<option></option>
-			<option value="Java">Java</option>
+<!-- 			<option value="Java">Java</option>
 			<option value="Java/J2ee">Java/J2ee</option>
 			<option value="HTML5/CSS3">HTML5/CSS3</option>
-			<option value="JavaScript">JavaScript</option>
+			<option value="JavaScript">JavaScript</option> -->
 		</select>
+		<script type="text/javascript">
+			if(gmr && gmr.values && gmr.values.skills) {
+				var allSkills = gmr.values.skills;
+				for(var counter in allSkills) {
+					$("#primary_skill").append('<option value="' + allSkills[counter] + 
+						'">' + allSkills[counter] + '</option>');
+				}
+				$("#primary_skill").trigger("chosen:updated");
+			}
+		</script>
 		<script type="text/javascript">
 			$('#primary_skill').chosen({
 				no_results_text: "Oops, nothing found!",
@@ -25,11 +35,21 @@
 	<div class="span4">
 		<select type="text" multiple="multiple"  id="secondary_skills" name="secondary_skills" 
 		data-placeholder="Secondary Skills &nbsp;" class="cform-text">
-		<option value="Java">Java</option>
+		<!-- <option value="Java">Java</option>
 		<option value="Java/J2ee">Java/J2ee</option>
 		<option value="HTML5/CSS3">HTML5/CSS3</option>
-		<option value="JavaScript">JavaScript</option>
+		<option value="JavaScript">JavaScript</option> -->
 	</select>
+	<script type="text/javascript">
+		if(gmr && gmr.values && gmr.values.skills) {
+			var allSkills = gmr.values.skills;
+			for(var counter in allSkills) {
+				$("#secondary_skills").append('<option value="' + allSkills[counter] + 
+					'">' + allSkills[counter] + '</option>');
+			}
+			$("#secondary_skills").trigger("chosen:updated");
+		}
+	</script>
 	<script type="text/javascript">
 		var $secondary_skills_values ="<?php echo $_SESSION['secondary_skills']?>";
 		var $secondary_skills_dropdown = $("#secondary_skills");
