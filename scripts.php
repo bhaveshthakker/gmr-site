@@ -37,8 +37,8 @@
           <script src="js/jquery.js"></script>
           <script type="text/javascript" src="js/bootstrap.js"></script>
           <!--<script src="js/jquery-ui-1.10.2.js"></script>-->
-          <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-          <script src="js/chosen.jquery.js" type="text/javascript"></script>
+          <!--<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>-->
+          <script type="text/javascript" src="js/chosen.jquery.js"></script>
           <!-- Load ScrollTo -->
           <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
           <!-- Load LocalScroll -->

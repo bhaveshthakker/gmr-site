@@ -721,7 +721,7 @@ input[type=text], input[type=password] {
 	#theme-form input[type=text], .cform-form textarea {
 		/*background: rgba(227, 231, 228, 1);*/
 		font-family: 'Open Sans', sans serif;
-		/*border: 0;*/
+		border: 0;
 		text-align: left;
 		vertical-align: middle;
 	}
@@ -1252,7 +1252,8 @@ footer p {
 	background: #000;
 	display: none;
 }
-#forget_password_popup {
+#forget_password_modal {
+	/*background-color: #e4e5e2; 
 	width: 404px;
 	padding-bottom: 2px;
 	display: none;
@@ -1262,10 +1263,10 @@ footer p {
 	-webkit-border-radius: 5px;
 	box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
 	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
-	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);*/
 }
 
-#forget_password_popup-header {
+/*#forget_password_modal-header {
 	background-color: #eff1ef;
 	padding: 18px 18px 14px 18px;
 	border-bottom: 1px solid #CCC;
@@ -1275,8 +1276,11 @@ footer p {
 	border-top-right-radius: 5px;
 	-moz-border-radius-topright: 5px;
 	-webkit-border-top-right-radius: 5px;
-}
-#forget_password_popup .txt-fld {
+}*/
+/*.modal-body {
+	background-color: #e4e5e2;
+}*/
+#forget_password_modal .txt-fld {
 	position: relative;
 	margin: auto;
 	padding: 14px 20px;
@@ -1284,8 +1288,9 @@ footer p {
 	text-align: center;
 
 }
-#forget_password_popup .txt-fld input{
+#forget_password_modal .txt-fld input{
 	width: 100% !important;
+	border: 1px solid #e4e5e2;
 }
 .modal_close {
 	position: absolute;

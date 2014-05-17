@@ -40,15 +40,15 @@ require_once('add_facebook_login_button.php');
             scrollToTopOnError : false,
             onSuccess: function() {
               var options = { 
-            //target:   '#signupApplicant',   // target element(s) to be updated with server response 
-            beforeSubmit:  beforeSubmit,  // pre-submit callback 
-            success: afterSuccess,  // post-submit callback 
-            uploadProgress: OnProgress //upload progress callback 
-            //resetForm: true        // reset the form after successful submit 
-          }; 
-          $("#signupApplicant").ajaxSubmit(options); 
-          return false;
-        }
+                  //target:   '#signupApplicant',   // target element(s) to be updated with server response 
+                  beforeSubmit:  beforeSubmit,  // pre-submit callback 
+                  success: afterSuccess,  // post-submit callback 
+                  uploadProgress: OnProgress //upload progress callback 
+                  //resetForm: true        // reset the form after successful submit 
+              }; 
+              $("#signupApplicant").ajaxSubmit(options); 
+              return false;
+            }
       });
           function afterSuccess(response)
           {

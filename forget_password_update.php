@@ -4,7 +4,7 @@ require_once('database.php');
 require_once('validation.php');
 require_once('set_session_data.php');
 
-$password1 = test_input($_POST['password1']);
+$password1 = test_input($_POST['pass_confirmation']);
 $salt = 'e8rfdvfgh689kjjkooi';
 $password=sha1($password1);
 

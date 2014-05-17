@@ -15,7 +15,7 @@ function setSessionData($row) {
 	$_SESSION['current_company'] = checkNull($row['current_company']);
 	$_SESSION['notice_period'] = checkNull($row['notice_period']);
 	$_SESSION['current_ctc'] = checkNull($row['current_ctc']);
-	print_r($_SESSION);
+	//print_r($_SESSION);
 }
 function checkNull($data) {
 	if(isset($data) && $data!=null)
