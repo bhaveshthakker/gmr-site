@@ -9,7 +9,7 @@ require_once('session_initialize.php');
   include_once('analyticstracking.php');
   require_once('header.php');
   if(isset($_SESSION['username']) && $_SESSION['username']!=null) { //user session is active
-    require_once('landing.php');   
+    require_once('landing.php');  
       //echo '<br>'.'session exist'.$_SESSION['username'];
   } else { //user session is not active --go anonymous
     require_once('informatica.php');
