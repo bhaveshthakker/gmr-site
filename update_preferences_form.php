@@ -19,6 +19,7 @@
 			<!-- <textarea rows="3" placeholder="List the name of your preferred locations"></textarea> -->
 			<div class="row top-buffer">
 				<div class="span8">
+					<input type="hidden" name="allSelectedLocations" id="allSelectedLocations"></input>
 					<input type="hidden" name="allSelectedCompanies" id="allSelectedCompanies"></input>
 					<input type="submit" value="Update" class="cform-submit">
 				</div>
@@ -71,11 +72,18 @@
 	$(function() { 
 			var cities = city_array;
 			var current_city = <?php echo "'".$_SESSION['current_city']."'"; ?>;
+			var preferred_cities = <?php echo "'".$_SESSION['location']."'"; ?>;
+			var city_ids = preferred_cities.split(";")
 			//console.log('current_city: '+ current_city);
 			for(var counter in cities)
 			{
-				$("#chosen-plugin-cities").append('<option value="' + cities[counter] + 
-					'">' + cities[counter] + '</option>');
+				if(city_ids.indexOf(cities[counter]) === -1) {
+					$("#chosen-plugin-cities").append('<option value="' + cities[counter] + 
+						'">' + cities[counter] + '</option>');
+				} else {
+					$("#chosen-plugin-cities").append('<option selected="selected" value="' + cities[counter] + 
+						'">' + cities[counter] + '</option>');
+				}
 
 				if(cities[counter]==current_city) {
 					$("#city").append('<option selected="selected" value="' + cities[counter] + 
@@ -105,6 +113,7 @@
 			}; 
 			$("#updatePreferences").submit(function() { 
 				populateCompanyName();
+				populateLocationsName();
 				$(this).ajaxSubmit(options);  			
 				//console.log($("#chosen-plugin-companies").val());
 				// always return false to prevent standard browser submit and page navigation 
@@ -119,6 +128,16 @@
 					allSelectedCompaniesTexts += allSelectedCompanies[i].text+ ";";// + ":" + allSelectedCompanies[i].value + ";"
 				}
 				$("#allSelectedCompanies").val(allSelectedCompaniesTexts);
+			}
+
+			function populateLocationsName() {
+				var allSelectedLocations = $("#chosen-plugin-cities :selected");
+				var allSelectedLocationsTexts = "";
+				for(var i = 0; i< allSelectedLocations.length; i++)
+				{
+					allSelectedLocationsTexts += allSelectedLocations[i].text+ ";";// + ":" + allSelectedCompanies[i].value + ";"
+				}
+				$("#allSelectedLocations").val(allSelectedLocationsTexts);
 			}
 
 		//function after succesful file upload (when server response)
