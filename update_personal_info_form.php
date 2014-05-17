@@ -11,7 +11,7 @@
 		</div>
 		<div class="span4">
 			<input type="text"  id="dob" name="dob" 
-			placeholder="Your Birthdate" class="cform-text" 
+			placeholder="Your Birth Date" class="cform-text" 
 			title="Your date of birth" value="<?php echo $_SESSION['dob']?>" />
 		</div>
 	</div>

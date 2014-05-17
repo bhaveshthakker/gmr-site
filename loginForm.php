@@ -15,7 +15,7 @@
                 <img src="img/facebook-login-button.png"/>
               </a>
             </div>
-            <div style="color: white;margin: 1em;font-weight:bold;">Or signin using your email</div>
+            <div style="color: white;margin: 1em;font-weight:bold;">Or Sign In using your email</div>
 
             <div style="color: red;margin: 1em;"><?php 
               if(isset($_GET['login-failed']) && $_GET['login-failed']=='1') {
@@ -35,7 +35,7 @@
                 data-validation-error-msg="Please enter your account password"
                 /></div> 
                 <input type="submit" value="Sign In" class="cform-submit" />
-                <a id="forgot-password" href="#forget_password_popup" class="cform-submit">Forget Password</a>
+                <a id="forgot-password" href="#forget_password_popup" class="cform-submit">Forgot Password</a>
               </form>
             </div>
             <!-- ./span12 -->
