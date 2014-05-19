@@ -10,11 +10,12 @@ $query = "select username, firstname, resume_path, company from applicants where
 /*echo $query;*/
 $result = mysql_query($query)  or die(mysql_error());
 /*echo $result;*/
-//echo $result;
+echo $result;
 if(mysql_num_rows($result)==1) {
-
 	$row = mysql_fetch_row($result);
-	$query = 'update applicants set status_type = "REGISTERED" where username = "$row[0]"';
+		echo $row[0]."<br />";
+	$query = "update applicants set status_type = 'REGISTERED' where username = '$row[0]'";
+	echo $query;
 	$result = mysql_query($query)  or die(mysql_error());
 	$_SESSION['username'] = $row[0];
 	$_SESSION['firstname'] = $row[1];
