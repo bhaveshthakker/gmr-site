@@ -34,8 +34,10 @@
                 data-validation="required" 
                 data-validation-error-msg="Please enter your account password"
                 /></div> 
-                <input type="submit" value="Sign In" class="cform-submit" />
-                <a id="forgot-password" href="#forget_password_popup" class="cform-submit">Forgot Password</a>
+                <input id="signinButton" type="submit" value="Sign In" class="cform-submit" />
+                <a id="forgot-password">Forgot Password</a>
+                <!-- data-toggle="modal" data-backdrop="true" data-keyboard="true"
+                href="#forget_password_modal" -->
               </form>
             </div>
             <!-- ./span12 -->
@@ -45,13 +47,13 @@
         </div>
         <!-- ./container -->
       </section>
-      <div id="forget_password_popup" style="display: none; position: fixed; opacity: 1; z-index: 11000; left: 50%; margin-left: -202px; top: 200px;">
-        <div id="signup-ct">
-          <div id="forget_password_popup-header">
-            <h2>Please, help us to find you!</h2>
-            <p>We need your email address</p>
-            <a class="modal_close" href="#"></a>
-          </div>
+      <div id="forget_password_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header forget_password_modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2>Please, help us to find you!</h2>
+          <h4>We need your email address</h4>
+        </div>
+        <div class="modal-body">
           <form method="post" id="forget_password_form" action='forget_password_submit.php'>
             <div class="txt-fld">
               <input id="forgot_password_email" name="forgot_password_email" 
@@ -66,18 +68,56 @@
 
       <script type="text/javascript">
         $(function () {
-          $("#forgot-password").leanModal({ top : 200, closeButton: ".modal_close" });  
+          $('#forgot-password').click(function(e) {
+           e.preventDefault();
+           $('#forget_password_modal').modal({
+            show: true, 
+            keyboard: true
+          });
+         });
+          /* $("#forgot-password").leanModal({ top : 200, closeButton: ".modal_close" });  */
           $.validate({
             form : '#loginForm, #forget_password_form',
             modules : 'security',
             scrollToTopOnError : false ,// Set this property to true if you have a long form
             onSuccess : function() {
-              $('#forget_button').attr('disabled', 'disabled').val('Please wait...'); 
+              var options = { 
+                  //target:   '#signupApplicant',   // target element(s) to be updated with server response 
+                  beforeSubmit:  beforeSubmit,  // pre-submit callback 
+                  success: afterSuccess,  // post-submit callback 
+                  uploadProgress: OnProgress //upload progress callback 
+                  //resetForm: true        // reset the form after successful submit 
+                }; 
+                $("#loginForm").ajaxSubmit(options); 
+                return false;
+              }
+            });
+          function afterSuccess(response)
+          {
+            try {
+              response = JSON.parse(response);
+              /*gmr.message.showMessages(response.error_desc);*/
+              if(response && response.error && response.error=='0') {
+                window.location.href = window.location.href;
+              } else if(response && response.error && response.error=='1') {
+                gmr.message.showMessages(response.error_desc);
+              } else {
+                gmr.message.showMessages("Something went wrong. Please try again or mail us at mail@getmereferred.com-15");  
+              }
+            } catch(e) {
+              gmr.message.showMessages("Something went wrong. Please try again or mail us at mail@getmereferred.com-15");
             }
-          });
+            $("#signinButton").val('Sign In');
+            $("#signinButton").removeAttr('disabled');
+          }
+          function beforeSubmit(){
+            $("#signinButton").val('Please wait...');
+            $("#signinButton").attr('disabled', 'disabled');
+          }
 
-          /*$('#forget_password_form').submit(function() {
-            $('#forget_button').attr('disabled', 'disabled').val('Please wait...');
-          });*/
+          function OnProgress(event, position, total, percentComplete)
+          {
+
+          }
         });
-      </script>
+</script>

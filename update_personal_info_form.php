@@ -7,7 +7,7 @@
 			<input type="text"  id="fullname" name="fullname" 
 			placeholder="Full Name" class="cform-text" 
 			size="40" title="Your full name" 
-			value="<?php echo $_SESSION['firstname']?>" />
+			value="<?php echo $_SESSION['fullname']?>" />
 		</div>
 		<div class="span4">
 			<input type="text"  id="dob" name="dob" 
