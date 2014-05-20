@@ -9,9 +9,34 @@
 	$result = mysql_query($query)  or $db_error = mysql_errno();
 
 ?>
+	<!DOCTYPE HTML>
+	<html lang="en">
+	<head>
+	<!-- <link href="../css/bootstrap.css" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></link>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.css"></link>
+	<!-- <link href="css/jquery.dataTables_themeroller.min.css" type="text/css" rel="stylesheet"></link> -->
+	
+
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script> 
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="//cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.js"></script>
+	
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#applicants_view').dataTable({
+        "order": [[ 10, "asc" ]],
+        "pagingType": "full_numbers",
+        "scrollY":        "400px",
+        "scrollX":        "400px",
+        "scrollCollapse": true,
+    } );
+	});
+</script>
+</head>
 	<body>
 		<div class="admin-page-container">
-		<table id='applicants_view' class="display" cellspacing="0" width="100%">
+		<table id='applicants_view' class="display cell-border order-column" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 				<th>User Name</th>
@@ -56,19 +81,4 @@
 ?>
 </div>
 </body>
-	<link href="../css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"></link>
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	<link href="css/jquery.dataTables_themeroller.min.css" type="text/css" rel="stylesheet"></link>
-	
-	<!-- <link rel="stlesheet" type="text/css" href="//cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.css"></link> -->
-	<!--<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>-->
-	<script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#applicants_view').dataTable({
-        "order": [[ 11, "desc" ]],
-        "pagingType": "full_numbers"
-    } );
-	});
-</script>
+</html>
