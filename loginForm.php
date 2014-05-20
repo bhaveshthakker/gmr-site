@@ -77,7 +77,16 @@
          });
           /* $("#forgot-password").leanModal({ top : 200, closeButton: ".modal_close" });  */
           $.validate({
-            form : '#loginForm, #forget_password_form',
+            form : '#forget_password_form',
+            modules : 'security',
+            scrollToTopOnError : false,
+            onSuccess : function() {
+              $('#forget_button').attr('disabled', 'disabled').val('Please wait...'); 
+            }
+          });
+
+          $.validate({
+            form : '#loginForm',
             modules : 'security',
             scrollToTopOnError : false ,// Set this property to true if you have a long form
             onSuccess : function() {
