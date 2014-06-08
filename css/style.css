@@ -672,7 +672,7 @@ input[type=text], input[type=password] {
 	}
 	#team h1, #contact h1 {
 		font-size: 3em;
-		margin-bottom: 0.5em;
+		margin-bottom: 0em;
 		margin-top: 0em;
 	}
 	#contact, #team {

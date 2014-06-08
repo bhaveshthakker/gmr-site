@@ -77,15 +77,6 @@
          });
           /* $("#forgot-password").leanModal({ top : 200, closeButton: ".modal_close" });  */
           $.validate({
-            form : '#forget_password_form',
-            modules : 'security',
-            scrollToTopOnError : false,
-            onSuccess : function() {
-              $('#forget_button').attr('disabled', 'disabled').val('Please wait...'); 
-            }
-          });
-
-          $.validate({
             form : '#loginForm',
             modules : 'security',
             scrollToTopOnError : false ,// Set this property to true if you have a long form
@@ -99,6 +90,14 @@
                 }; 
                 $("#loginForm").ajaxSubmit(options); 
                 return false;
+              }
+            });
+          $.validate({
+            form : '#forget_password_form',
+            modules : 'security',
+            scrollToTopOnError : false ,// Set this property to true if you have a long form
+            onSuccess : function() {
+                $("#forget_button").attr('disabled', 'disabled').val("Please wait...");
               }
             });
           function afterSuccess(response)
