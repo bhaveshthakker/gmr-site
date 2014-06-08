@@ -50,6 +50,11 @@
           <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
           <script type="text/javascript" src="js/alert-messages.js"></script>
           <script type="text/javascript" src="js/city_array.js"></script>
+
+          <script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+          <script type="text/javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/2/dataTables.bootstrap.js"></script>
+          <!-- <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" /> -->
+          <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/2/dataTables.bootstrap.css" />
           <script type="text/javascript">
             jQuery.fn.visible = function() {
               return this.animate({'opacity': '1'},5000);

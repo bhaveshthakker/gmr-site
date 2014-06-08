@@ -1406,3 +1406,21 @@ footer p {
 	#update-sections {
 		/*position: static;*/
 	}
+
+	/*Datatable for search openings*/
+	td.details-control {
+		width: 20px;
+		background: url('../img/details_open.png') no-repeat center center;
+	}
+	td {
+		cursor: pointer;
+		height: 2em;
+		line-height: 2em !important;
+	}
+	tr.shown td.details-control {
+		width: 20px;
+		background: url('../img/details_close.png') no-repeat center center;
+	}
+	#openings_table_filter label {
+		margin-right: 0px !important;
+	}
