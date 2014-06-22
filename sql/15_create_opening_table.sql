@@ -8,4 +8,6 @@ CREATE TABLE `openings` (
  `location` varchar(100) DEFAULT NULL,
  PRIMARY KEY (`opening_id`),
  KEY `opening_id` (`opening_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+alter table openings add column desc varchar(1000);

@@ -11,6 +11,7 @@
 						<th>Experience Required</th>
 						<th>Company</th>
 						<th>Location</th>
+						<!-- <th>Description</th> -->
 					</tr>
 				</thead>
 			</table>
@@ -36,6 +37,10 @@
 			<td>Location:</td>
 			<td><%=location%></td>
 		</tr>
+		<tr>
+			<td>Description:</td>
+			<td><%=description%></td>
+		</tr>
 	</table>
 </script>
 
@@ -57,7 +62,8 @@
 			{ "data": "primary_skill" },
 			{ "data": "experience" },
 			{ "data": "company" },
-			{ "data": "location" }
+			{ "data": "location" }/*,
+			{ "data": "description" }*/
 			],
 			"order": [[4, 'asc']]
 		} );

@@ -23,6 +23,7 @@ if($numOfOpenings > 0) {
     $opening['experience'] = $row['experience'];
     $opening['company'] = $row['company'];
     $opening['location'] = $row['location'];
+    $opening['description'] = $row['description'];
     $response['data'][$count] = $opening;
     $count++;
   }
